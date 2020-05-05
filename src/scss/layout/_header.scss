@@ -1,0 +1,47 @@
+.top-nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    &__left {
+        img {
+            width: 5rem;
+            height: 5em;
+            opacity: .6;
+        }
+    }
+
+    &__right {
+        position: relative;
+        align-items: center;
+        text-align: right;
+        padding-right: 2rem;
+
+        a:link {
+            margin-right: 1rem;
+        }
+
+        .links--items {
+            font-size: 1.2rem;
+            color: #000;
+            text-decoration: none;
+            opacity: .75;
+        }
+
+        .active {
+            color: blue;
+            opacity: 1;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            img {
+                width: 33px;
+                cursor: pointer;
+            }
+        }
+    }
+}

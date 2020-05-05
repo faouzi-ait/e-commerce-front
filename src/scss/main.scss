@@ -1,8 +1,5 @@
-$test: red;
+@import './base/reset';
+@import './base/typography';
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, sans-serif;
-    color: $test;
-}
+@import './layout/header';
+@import './layout/cart';
