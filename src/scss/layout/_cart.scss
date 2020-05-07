@@ -1,7 +1,14 @@
 .cart__container {
     position: absolute;
-    right: 0;
     width: 35%;
     height: 5rem;
+    right: 2rem;
     border: 1px solid red;
+
+    &--closeBtn {
+        display: flex;
+        justify-content: flex-end;
+        text-align: right;
+        color: green;
+    }
 }

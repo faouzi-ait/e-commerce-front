@@ -1,0 +1,39 @@
+fieldset {
+    width: 25%;
+    margin: 0 auto;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-radius: 3px;
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-radius: 3px;
+    outline: none;
+}
+
+label,
+button {
+    display: block;
+    margin: .5rem 0 .25rem 0;
+}
+
+label:first-of-type {
+    margin-top: 0;
+}
+
+input {
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: .5rem;
+}
+
+button {
+    text-transform: uppercase;
+    padding: .35rem .75rem;
+    background: none;
+    border-radius: 3px;
+    outline: none;
+}

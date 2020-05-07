@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "../ui-elements/Header";
 
-export default function Home() {
+function Dashboard() {
   return (
     <div>
       <Header />
-      Home Component
+      Dashboard Content
     </div>
   );
 }
+
+export default Dashboard;

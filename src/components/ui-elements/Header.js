@@ -1,9 +1,21 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router";
+
 import Cart from "../pages/Cart";
+import { useSelector, useDispatch } from "react-redux";
+import { SET_USER_NOT_AUTHENTICATED } from "../../redux/types";
 import { NavLink } from "react-router-dom";
 
-export default function Header() {
+function Header({ history }) {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const logout = (e) => {
+    dispatch({ type: SET_USER_NOT_AUTHENTICATED });
+    localStorage.removeItem("store_user_token");
+    history.push("/");
+  };
 
   return (
     <div className="top-nav-bar">
@@ -22,14 +34,22 @@ export default function Header() {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/login"
-            className="links--items"
-            activeClassName="active"
-            exact
-          >
-            Login
-          </NavLink>
+
+          {!isAuthenticated ? (
+            <NavLink
+              to="/login"
+              className="links--items"
+              activeClassName="active"
+              exact
+            >
+              login
+            </NavLink>
+          ) : (
+            <a href="#logout" className="links--items" onClick={logout}>
+              logout
+            </a>
+          )}
+
           <NavLink
             to="/register"
             className="links--items"
@@ -49,3 +69,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default withRouter(Header);
