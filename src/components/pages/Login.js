@@ -45,7 +45,7 @@ function Login({ handleSubmit, history }) {
               type="password"
               placeholder="Please type in your password"
             />
-            <button>Login</button>
+            <button>login</button>
           </fieldset>
         </form>
       </div>

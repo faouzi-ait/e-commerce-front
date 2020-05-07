@@ -50,14 +50,14 @@ function Header({ history }) {
             </a>
           )}
 
-          <NavLink
+          {!isAuthenticated && <NavLink
             to="/register"
             className="links--items"
             activeClassName="active"
             exact
           >
             Register
-          </NavLink>
+          </NavLink>}
           <img
             src="./cart.png"
             alt="cart"

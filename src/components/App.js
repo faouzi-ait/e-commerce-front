@@ -30,8 +30,16 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <Route
+          exact
+          path="/login"
+          component={!isAuthenticated ? Login : Dashboard}
+        />
+        <Route
+          exact
+          path="/register"
+          component={!isAuthenticated ? Register : Dashboard}
+        />
         <Route
           exact
           path="/dashboard"
