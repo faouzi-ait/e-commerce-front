@@ -5,11 +5,13 @@ import logger from "redux-logger";
 
 import { registration_reducer } from "./features/registration/reducer";
 import { login_reducer } from "./features/login/reducer";
+import { get_listing_reducer } from "./features/main_product_listing/reducer";
 import { isAuthenticated } from "./features/auth_status/reducer";
 
 const combinedReducers = combineReducers({
   registration_reducer,
   login_reducer,
+  get_listing_reducer,
   isAuthenticated,
   form: formReducer,
 });

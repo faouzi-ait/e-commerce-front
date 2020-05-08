@@ -1,0 +1,52 @@
+// BOX SHADOW
+// -webkit-box-shadow: 1px 1px 2px 2px #ccc;
+// -moz-box-shadow: 1px 1px 2px 2px #ccc;
+// box-shadow: 1px 1px 1px 1px #ccc;
+
+.home__product {
+    margin-top: .25rem;
+    padding-top: .25rem;
+
+    &--listing {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    &--item {
+        position: relative;
+        flex-grow: 1 1;
+        margin: .5rem;
+        border: 2px solid rgba(0, 0, 0, 0.61);
+
+        img {
+            width: 390px;
+            height: 275px;
+            display: block;
+        }
+    }
+
+    &--item:hover>&--title {
+        background: rgba(255, 255, 255, .85);
+        border: 2px solid rgba(0, 0, 0, 1);
+    }
+
+    &--title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 2rem;
+        color: rgba(0, 0, 0, 0.5);
+        text-transform: uppercase;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        transition: all 400ms linear;
+        background: rgba(255, 255, 255, 0.493);
+        border: 2px solid rgba(0, 0, 0, 0.61);
+    }
+
+    &--shop_now {
+        margin-top: .45rem;
+        font-size: .75rem;
+    }
+}

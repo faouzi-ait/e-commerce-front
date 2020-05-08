@@ -1,9 +1,12 @@
 .cart__container {
     position: absolute;
     width: 35%;
-    height: 5rem;
+    height: 15rem;
     right: 2rem;
-    border: 1px solid red;
+    padding-right: .5rem;
+    background: #fff;
+    z-index: 9999;
+    border: 2px solid #eee;
 
     &--closeBtn {
         display: flex;
