@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetch_listing } from "../../redux/features/main_product_listing/action";
 
 import Header from "../ui-elements/Header";
+import HomeListing from "../ui-elements/HomeListing";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -22,14 +23,8 @@ export default function Home() {
       <div className="home__product">
         <div className="home__product--listing">
           {product_listing &&
-            product_listing.map((item) => (
-              <div className="home__product--item">
-                <img src={item.imageUrl} alt="product" />
-                <div className="home__product--title">
-                  <span>{item.title}</span>
-                  <div className="home__product--shop_now">SHOP NOW</div>
-                </div>
-              </div>
+            product_listing.map((item, i) => (
+              <HomeListing item={item} key={i} />
             ))}
         </div>
       </div>

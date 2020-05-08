@@ -7,9 +7,9 @@ import { SET_USER_NOT_AUTHENTICATED } from "../../redux/types";
 import { NavLink } from "react-router-dom";
 
 function Header({ history }) {
-  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const logout = (e) => {
     dispatch({ type: SET_USER_NOT_AUTHENTICATED });
@@ -21,7 +21,7 @@ function Header({ history }) {
     <div className="top-nav-bar">
       <div className="top-nav-bar__left">
         <NavLink to="/">
-          <img src="./logo_horse.png" alt="crown" />
+          <img src="../../logo_horse.png" alt="crown" />
         </NavLink>
       </div>
       <div className="top-nav-bar__right">
@@ -33,6 +33,14 @@ function Header({ history }) {
             exact
           >
             Home
+          </NavLink>
+          <NavLink
+            to="/contact-us"
+            className="links--items"
+            activeClassName="active"
+            exact
+          >
+            Contact
           </NavLink>
 
           {!isAuthenticated ? (
@@ -50,16 +58,18 @@ function Header({ history }) {
             </a>
           )}
 
-          {!isAuthenticated && <NavLink
-            to="/register"
-            className="links--items"
-            activeClassName="active"
-            exact
-          >
-            Register
-          </NavLink>}
+          {!isAuthenticated && (
+            <NavLink
+              to="/register"
+              className="links--items"
+              activeClassName="active"
+              exact
+            >
+              Register
+            </NavLink>
+          )}
           <img
-            src="./cart.png"
+            src="../../cart.png"
             alt="cart"
             onClick={() => setIsCartOpen(true)}
           />

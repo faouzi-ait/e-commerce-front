@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Category from "./pages/Category";
+import ProductDetails from "./pages/ProductDetails";
+import Contact from "./pages/Contact";
 import Error4O4 from "./pages/error_pages/Error404";
 import Error4O3 from "./pages/error_pages/Error403";
 
@@ -30,6 +33,12 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/category/:id" component={Category} />
+        <Route
+          exact
+          path="/category/product/:productId"
+          component={ProductDetails}
+        />
         <Route
           exact
           path="/login"
@@ -40,6 +49,7 @@ function App() {
           path="/register"
           component={!isAuthenticated ? Register : Dashboard}
         />
+        <Route exact path="/contact-us" component={Contact} />
         <Route
           exact
           path="/dashboard"

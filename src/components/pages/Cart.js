@@ -4,7 +4,7 @@ export default function Cart({ open }) {
   return (
     <div className="cart__container">
       <div className="cart__container--closeBtn">
-        <button onClick={() => open(false)}>close</button>
+        <span onClick={() => open(false)} className="close__btn">X</span>
       </div>
     </div>
   );

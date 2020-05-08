@@ -1,6 +1,6 @@
 fieldset {
-    width: 25%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 6rem auto;
     margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid rgba(128, 128, 128, 0.24);
@@ -17,6 +17,7 @@ input {
 label,
 button {
     display: block;
+    text-transform: uppercase;
     margin: .5rem 0 .25rem 0;
 }
 
@@ -31,9 +32,9 @@ input {
 }
 
 button {
-    text-transform: uppercase;
-    padding: .35rem .75rem;
-    background: none;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: #000;
     border-radius: 3px;
     outline: none;
 }

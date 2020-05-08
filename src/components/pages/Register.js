@@ -40,6 +40,7 @@ function Register({ handleSubmit, history }) {
       <div className="registration__form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
+            <h2>Register your new account for full access:</h2>
             {register_error && (
               <div style={{ textAlign: "center" }}>
                 {register_error.data.message}

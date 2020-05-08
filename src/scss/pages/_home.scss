@@ -18,17 +18,23 @@
         flex-grow: 1 1;
         margin: .5rem;
         border: 2px solid rgba(0, 0, 0, 0.61);
+        overflow: hidden;
 
         img {
             width: 390px;
             height: 275px;
             display: block;
+            transition: all 1.25s linear;
         }
     }
 
     &--item:hover>&--title {
         background: rgba(255, 255, 255, .85);
         border: 2px solid rgba(0, 0, 0, 1);
+    }
+
+    &--item:hover>img {
+        transform: scale(1.1);
     }
 
     &--title {
@@ -48,5 +54,12 @@
     &--shop_now {
         margin-top: .45rem;
         font-size: .75rem;
+        opacity: .6;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        opacity: .6;
     }
 }

@@ -3,15 +3,19 @@
     width: 35%;
     height: 15rem;
     right: 2rem;
-    padding-right: .5rem;
+    padding-right: .2rem;
+    border: 2px solid #000;
     background: #fff;
     z-index: 9999;
-    border: 2px solid #eee;
 
-    &--closeBtn {
-        display: flex;
-        justify-content: flex-end;
-        text-align: right;
-        color: green;
+    .close__btn {
+        display: inline-block;
+        color: #fff;
+        margin-top: .2rem;
+        padding: .5rem .75rem;
+        text-align: center;
+        background: #000;
+        cursor: pointer;
     }
+
 }
