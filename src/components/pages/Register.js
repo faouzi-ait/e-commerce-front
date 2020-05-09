@@ -55,28 +55,28 @@ function Register({ handleSubmit, history }) {
             <FormInput
               name="firstname"
               type="text"
-              placeholder="Please type in your firstname"
+              placeholder="Type in your firstname"
             />
 
             <label htmlFor="lastname">Lastname: </label>
             <FormInput
               name="lastname"
               type="text"
-              placeholder="Please type in your lastname"
+              placeholder="Type in your lastname"
             />
 
             <label htmlFor="email">Email: </label>
             <FormInput
               name="email"
               type="email"
-              placeholder="Please type in your email"
+              placeholder="Type in your email"
             />
 
             <label htmlFor="password">Password: </label>
             <FormInput
               name="password"
               type="password"
-              placeholder="Please type in your password"
+              placeholder="Type in your password"
             />
             <button>register</button>
           </fieldset>

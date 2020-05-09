@@ -37,14 +37,14 @@ function Login({ handleSubmit, history }) {
             <FormInput
               name="email"
               type="email"
-              placeholder="Please type in your email"
+              placeholder="Type in your email"
             />
 
             <label htmlFor="password">Password: </label>
             <FormInput
               name="password"
               type="password"
-              placeholder="Please type in your password"
+              placeholder="Type in your password"
             />
             <button>login</button>
           </fieldset>

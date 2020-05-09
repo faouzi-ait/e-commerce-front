@@ -21,7 +21,7 @@ function Header({ history }) {
     <div className="top-nav-bar">
       <div className="top-nav-bar__left">
         <NavLink to="/">
-          <img src="../../logo_horse.png" alt="crown" />
+          <img src="../../crown.svg" alt="crown" />
         </NavLink>
       </div>
       <div className="top-nav-bar__right">
