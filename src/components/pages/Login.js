@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../ui-elements/Header";
 import { useSelector, useDispatch } from "react-redux";
+import { reduxForm, Field } from "redux-form";
 import { login_user } from "../../redux/features/login/action";
-import { reduxForm } from "redux-form";
-import FormInput from "../ui-elements/ReduxFormInput";
+
+import LoginHeader from "../ui-elements/LoginHeader";
 
 function Login({ handleSubmit, history }) {
   const dispatch = useDispatch();
@@ -26,31 +26,33 @@ function Login({ handleSubmit, history }) {
   };
 
   return (
-    <>
-      {" "}
-      <Header />
-      <div className="registration__form">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset>
-            <h2>Please login with your email and password</h2>
-            <label htmlFor="email">Email: </label>
-            <FormInput
-              name="email"
-              type="email"
-              placeholder="Type in your email"
-            />
+    <div className="registration__form">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <fieldset>
+          <LoginHeader msg="If you are an existing client, login with your email and password:" />
+          <label htmlFor="email">Email: </label>
+          <Field
+            name="email"
+            id="email"
+            type="email"
+            component="input"
+            placeholder="Type in your email"
+            autoComplete="off"
+          />
 
-            <label htmlFor="password">Password: </label>
-            <FormInput
-              name="password"
-              type="password"
-              placeholder="Type in your password"
-            />
-            <button>login</button>
-          </fieldset>
-        </form>
-      </div>
-    </>
+          <label htmlFor="password">Password: </label>
+          <Field
+            name="password"
+            id="password"
+            type="password"
+            component="input"
+            placeholder="Type in your password"
+            autoComplete="off"
+          />
+          <button>login</button>
+        </fieldset>
+      </form>
+    </div>
   );
 }
 

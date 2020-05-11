@@ -50,23 +50,12 @@ function Header({ history }) {
               activeClassName="active"
               exact
             >
-              login
+              member
             </NavLink>
           ) : (
             <a href="#logout" className="links--items" onClick={logout}>
               logout
             </a>
-          )}
-
-          {!isAuthenticated && (
-            <NavLink
-              to="/register"
-              className="links--items"
-              activeClassName="active"
-              exact
-            >
-              Register
-            </NavLink>
           )}
           <img
             src="../../cart.png"

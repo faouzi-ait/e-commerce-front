@@ -1,12 +1,11 @@
 import React from "react";
-import Header from "../ui-elements/Header";
 import { useSelector, useDispatch } from "react-redux";
-
-// IMPORT ACTION CREATOR FOR SENDING MAIL HERE
-import { send_contact_message } from "../../redux/features/contact/action";
-
 import { reduxForm } from "redux-form";
+import { send_contact_message } from "../../redux/features/contact/action";
+import Header from "../ui-elements/Header";
 import FormInput from "../ui-elements/ReduxFormInput";
+
+import LoginHeader from "../ui-elements/LoginHeader";
 
 function Contact({ handleSubmit }) {
   const dispatch = useDispatch();
@@ -23,11 +22,10 @@ function Contact({ handleSubmit }) {
   return (
     <div>
       <Header />
-      <div className="registration__form">
+      <div className="registration__form contact_layout">
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
-            <h2>Send us a message and say hi!!</h2>
-
+            <LoginHeader msg="Send us a message and say hi!!" />
             <label htmlFor="name">Name: </label>
             <FormInput
               name="name"

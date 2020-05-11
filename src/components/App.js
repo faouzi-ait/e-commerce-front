@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+
+import UserAuth from "./ui-elements/UserAuth";
 import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
 import ProductDetails from "./pages/ProductDetails";
@@ -45,12 +45,7 @@ function App() {
         <Route
           exact
           path="/login"
-          component={!isAuthenticated ? Login : Dashboard}
-        />
-        <Route
-          exact
-          path="/register"
-          component={!isAuthenticated ? Register : Dashboard}
+          component={!isAuthenticated ? UserAuth : Dashboard}
         />
         <Route exact path="/contact-us" component={Contact} />
         <Route
