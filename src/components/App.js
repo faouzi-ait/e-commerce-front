@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-
-import UserAuth from "./ui-elements/UserAuth";
+import Store from "./pages/Store";
 import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
 import ProductDetails from "./pages/ProductDetails";
 import Contact from "./pages/Contact";
+import UserAuth from "./ui-elements/UserAuth";
 import Error4O4 from "./pages/error_pages/Error404";
 import Error4O3 from "./pages/error_pages/Error403";
 
@@ -36,6 +36,7 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/store" component={Store} />
         <Route exact path="/category/:id" component={Category} />
         <Route
           exact

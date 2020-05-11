@@ -5,7 +5,7 @@ const initialState = {
   errorMessage: {},
 };
 
-export const registration_reducer = (state = initialState, action) => {
+export const registration = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER_USER_SUCCESS:
       return {

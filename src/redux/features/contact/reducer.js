@@ -5,7 +5,7 @@ const initialState = {
   errorMessage: {},
 };
 
-export const contact_reducer = (state = initialState, action) => {
+export const contact = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE_SUCCESS:
       return {

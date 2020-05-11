@@ -8,7 +8,7 @@ import HomeListing from "../ui-elements/HomeListing";
 export default function Home() {
   const dispatch = useDispatch();
   const product_listing = useSelector(
-    (state) => state.get_listing_reducer.list
+    (state) => state.get_listing.list
   );
 
   useEffect(() => {

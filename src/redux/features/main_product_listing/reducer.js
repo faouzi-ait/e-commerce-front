@@ -8,7 +8,7 @@ const initialState = {
   errorMessage: {},
 };
 
-export const get_listing_reducer = (state = initialState, action) => {
+export const get_listing = (state = initialState, action) => {
   switch (action.type) {
     case GET_MAIN_LISTING_SUCCESS:
       return {

@@ -10,10 +10,10 @@ function Register({ handleSubmit, history }) {
   const dispatch = useDispatch();
   const fields = useSelector((state) => state.form);
   const register_error = useSelector(
-    (state) => state.registration_reducer.errorMessage.response
+    (state) => state.registration.errorMessage.response
   );
   const register_success = useSelector(
-    (state) => state.registration_reducer.user.message
+    (state) => state.registration.user.message
   );
 
   const onSubmit = (e) => {

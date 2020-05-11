@@ -33,7 +33,6 @@ function Login({ handleSubmit, history }) {
           <label htmlFor="email">Email: </label>
           <Field
             name="email"
-            id="email"
             type="email"
             component="input"
             placeholder="Type in your email"
@@ -43,7 +42,6 @@ function Login({ handleSubmit, history }) {
           <label htmlFor="password">Password: </label>
           <Field
             name="password"
-            id="password"
             type="password"
             component="input"
             placeholder="Type in your password"

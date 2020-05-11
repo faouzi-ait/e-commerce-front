@@ -35,6 +35,14 @@ function Header({ history }) {
             Home
           </NavLink>
           <NavLink
+            to="/store"
+            className="links--items"
+            activeClassName="active"
+            exact
+          >
+            store
+          </NavLink>
+          <NavLink
             to="/contact-us"
             className="links--items"
             activeClassName="active"
