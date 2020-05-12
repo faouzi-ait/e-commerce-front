@@ -13,11 +13,11 @@ import UserAuth from "./ui-elements/UserAuth";
 import Error4O4 from "./pages/error_pages/Error404";
 import Error4O3 from "./pages/error_pages/Error403";
 
-import "../App.scss";
 import {
   SET_USER_AUTHENTICATED,
   SET_USER_NOT_AUTHENTICATED,
 } from "../redux/types";
+import "../App.scss";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ function App() {
     } else {
       dispatch({ type: SET_USER_NOT_AUTHENTICATED });
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

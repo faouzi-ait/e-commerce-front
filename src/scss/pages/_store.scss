@@ -1,0 +1,24 @@
+.listing__container {
+    margin-top: 2rem;
+
+    &--title,
+    &--card {
+        margin-bottom: 1.75rem;
+    }
+
+    &--title {
+        font-size: 2rem !important;
+    }
+
+    &--cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    &--details {
+        display: flex;
+        justify-content: space-between !important;
+        font-size: 1.35rem;
+    }
+}

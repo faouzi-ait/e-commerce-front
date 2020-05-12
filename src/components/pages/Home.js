@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetch_listing());
-  }, []);
+  }, [dispatch]);
 
   console.log(product_listing);
 
