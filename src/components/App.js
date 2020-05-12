@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
 import ProductDetails from "./pages/ProductDetails";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
 import UserAuth from "./ui-elements/UserAuth";
 import Error4O4 from "./pages/error_pages/Error404";
 import Error4O3 from "./pages/error_pages/Error403";
@@ -54,6 +55,7 @@ function App() {
           path="/dashboard"
           component={isAuthenticated ? Dashboard : Error4O3}
         />
+        <Route exact path="/checkout" component={Checkout} />
         <Route exact path="*" component={Error4O4} />
       </Switch>
     </>

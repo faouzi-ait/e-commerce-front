@@ -37,8 +37,8 @@ function Register({ handleSubmit, history }) {
   return (
     <div className="registration__form">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset>
-          <LoginHeader msg="For new users, create your account for full access here:" />
+        <fieldset className="responsive__margin">
+          <LoginHeader msg="Create your account for full access" />
           <label htmlFor="firstname">Firstname: </label>
           <FormInput
             name="firstname"

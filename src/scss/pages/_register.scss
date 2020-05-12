@@ -74,31 +74,3 @@ button {
     border-radius: 3px;
     outline: none;
 }
-
-@media screen and (min-width: 320px) and (max-width: 800px) {
-    .login__screen {
-        grid-template-columns: 1fr;
-    }
-
-    .login__user--responsive {
-        display: block;
-        margin-top: 3rem;
-    }
-
-    .login__screen--current-user,
-    .login__screen--new-user {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 320px) and (max-width: 800px) {
-    .contact_layout {
-        width: 100% !important;
-    }
-}
-
-@media screen and (min-width: 801px) and (max-width: 1240px) {
-    .contact_layout {
-        width: 80% !important;
-    }
-}

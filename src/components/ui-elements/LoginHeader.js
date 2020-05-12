@@ -9,11 +9,12 @@ export default function LoginHeader({ msg }) {
         alignItems: "center",
         textAlign: "center",
         margin: ".5rem auto 2rem",
-        padding: "1.5rem 0",
+        padding: "1rem .5rem",
         color: "#fff",
         lineHeight: "2rem",
         background: "#000",
         borderRadius: "3px",
+        textTransform: "uppercase"
       }}
     >
       <p>{msg}</p>

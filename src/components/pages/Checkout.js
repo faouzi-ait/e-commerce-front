@@ -2,12 +2,14 @@ import React from "react";
 import Header from "../ui-elements/HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
 
-export default function Store() {
+function Checkout() {
   return (
     <div>
       <Header />
       <HeaderMobile />
-      Store Page
+      Checkout Page
     </div>
   );
 }
+
+export default Checkout;

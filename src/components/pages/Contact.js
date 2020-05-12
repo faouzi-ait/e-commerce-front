@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { reduxForm } from "redux-form";
 import { send_contact_message } from "../../redux/features/contact/action";
-import Header from "../ui-elements/Header";
+import Header from "../ui-elements/HeaderDesktop";
+import HeaderMobile from "../ui-elements/HeaderMobile";
 import FormInput from "../ui-elements/ReduxFormInput";
 
 import LoginHeader from "../ui-elements/LoginHeader";
@@ -22,10 +23,11 @@ function Contact({ handleSubmit }) {
   return (
     <div>
       <Header />
+      <HeaderMobile />
       <div className="registration__form contact_layout">
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
-            <LoginHeader msg="Send us a message and say hi!!" />
+            <LoginHeader msg="Send us a hello!!" />
             <label htmlFor="name">Name: </label>
             <FormInput
               name="name"

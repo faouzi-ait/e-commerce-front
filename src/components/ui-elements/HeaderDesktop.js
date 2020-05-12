@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 
-import Cart from "../pages/Cart";
+import Cart from "../pages/CartPopup";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_USER_NOT_AUTHENTICATED } from "../../redux/types";
 import { NavLink } from "react-router-dom";
@@ -25,7 +25,7 @@ function Header({ history }) {
         </NavLink>
       </div>
       <div className="top-nav-bar__right">
-        <nav>
+        <nav className="navigation__section">
           <NavLink
             to="/"
             className="links--items"

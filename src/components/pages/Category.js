@@ -1,15 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Header from "../ui-elements/Header";
+import Header from "../ui-elements/HeaderDesktop";
+import HeaderMobile from "../ui-elements/HeaderMobile";
 
 export default function Category() {
   let { id } = useParams();
   console.log(id);
 
   return (
-    <div>
+    <>
+      {" "}
       <Header />
-      {id}
-    </div>
+      <HeaderMobile />
+      <div style={{ background: "transparent", height: "100vh" }}>{id}</div>
+    </>
   );
 }

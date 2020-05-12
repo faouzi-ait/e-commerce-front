@@ -5,7 +5,7 @@ import logger from "redux-logger";
 
 import { registration } from "./features/registration/reducer";
 import { login } from "./features/login/reducer";
-import { get_listing } from "./features/main_product_listing/reducer";
+import { get_listing } from "./features/product_category_listing/reducer";
 import { contact } from "./features/contact/reducer";
 import { isAuthenticated } from "./features/auth_status/reducer";
 

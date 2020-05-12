@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs } from "@yazanaabed/react-tabs";
-import Header from "./Header";
+import Header from "./HeaderDesktop";
+import HeaderMobile from "../ui-elements/HeaderMobile";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
@@ -8,6 +9,7 @@ export default function UserAuth({ history }) {
   return (
     <>
       <Header />
+      <HeaderMobile />
       <div className="login__screen">
         {/* DESKTOP DISPLAY */}
         <div className="login__screen--current-user">

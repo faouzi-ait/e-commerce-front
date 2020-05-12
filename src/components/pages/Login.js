@@ -29,7 +29,7 @@ function Login({ handleSubmit, history }) {
     <div className="registration__form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-          <LoginHeader msg="If you are an existing client, login with your email and password:" />
+          <LoginHeader msg="Login with your email and password" />
           <label htmlFor="email">Email: </label>
           <Field
             name="email"

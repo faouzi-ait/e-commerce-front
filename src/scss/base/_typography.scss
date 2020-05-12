@@ -2,3 +2,10 @@ body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     padding: 2.5rem
 }
+
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 2.5rem 0 !important
+    }
+}
