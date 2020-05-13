@@ -13,7 +13,6 @@
     &--cards {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-
     }
 
     &--details {
@@ -21,4 +20,35 @@
         justify-content: space-between !important;
         font-size: 1.35rem;
     }
+
+    &--card {
+        position: relative;
+
+        &:hover {
+            opacity: .75;
+        }
+    }
+
+    &--addToCart {
+        display: none;
+        width: 75%;
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        padding: .75rem 0;
+        text-transform: uppercase;
+        transform: translate(-50%, -50%);
+        background: #eee;
+        cursor: pointer;
+    }
+
+    &--card:hover &--addToCart {
+        display: block;
+        opacity: 1 !important;
+    }
+}
+
+.category__item--header {
+    margin: 1rem 0 !important;
+    font-size: 2rem;
 }

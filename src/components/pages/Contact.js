@@ -12,11 +12,8 @@ function Contact({ handleSubmit }) {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.form);
 
-  //console.log(form);
-
   const onSubmit = (e) => {
     const { name, lastname, email, message } = form.contact.values;
-    console.log(name, lastname, email, message);
     dispatch(send_contact_message({ name, lastname, email, message }));
   };
 

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { shop_items } from "../../redux/features/product_listing/action";
 
+import StoreItems from "../ui-elements/StoreItems";
 import Header from "../ui-elements/HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
 
@@ -26,19 +27,7 @@ export default function Store() {
 
             <div className="listing__container--cards">
               {item.items.map((product) => (
-                <div className="listing__container--card">
-                  {" "}
-                  <img
-                    src={product.imageUrl}
-                    alt={product.name}
-                    width="225"
-                    height="300"
-                  />
-                  <div className="listing__container--details">
-                    <span>{product.name}</span>
-                    <span>{product.price}$</span>
-                  </div>
-                </div>
+                <StoreItems product={product} />
               ))}
             </div>
           </div>
