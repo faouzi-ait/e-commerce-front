@@ -1,20 +1,24 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { reduxForm } from "redux-form";
 import { send_contact_message } from "../../redux/features/contact/action";
+
+import FormFieldWrapper from "../ui-elements/FormFieldsWrapper";
+import { Formik, Form } from "formik";
+import { validationSchemaContact } from "../../utils/utilities";
+
 import Header from "../ui-elements/HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
-import FormInput from "../ui-elements/ReduxFormInput";
-
 import LoginHeader from "../ui-elements/LoginHeader";
 
-function Contact({ handleSubmit }) {
+function Contact() {
   const dispatch = useDispatch();
-  const form = useSelector((state) => state.form);
+  const { errorMessage, message } = useSelector((state) => state.contact);
 
-  const onSubmit = (e) => {
-    const { name, lastname, email, message } = form.contact.values;
-    dispatch(send_contact_message({ name, lastname, email, message }));
+  const onSubmit = (values) => {
+    const { firstname, lastname, email, message } = values;
+    dispatch(
+      send_contact_message({ name: firstname, lastname, email, message })
+    );
   };
 
   return (
@@ -22,42 +26,78 @@ function Contact({ handleSubmit }) {
       <Header />
       <HeaderMobile />
       <div className="registration__form contact_layout">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset>
-            <LoginHeader msg="Send us a hello!!" />
-            <label htmlFor="name">Name: </label>
-            <FormInput
-              name="name"
-              type="text"
-              placeholder="Type in your name"
-            />
+        <fieldset>
+          <LoginHeader msg="Send us a hello!!" />
 
-            <label htmlFor="lastname">Lastname: </label>
-            <FormInput
-              name="lastname"
-              type="text"
-              placeholder="Type in your lastname"
-            />
+          <Formik
+            initialValues={{
+              firstname: "",
+              lastname: "",
+              email: "",
+              message: "",
+            }}
+            validationSchema={validationSchemaContact}
+            onSubmit={onSubmit}
+          >
+            <Form>
+              <FormFieldWrapper
+                forHtml="firstname"
+                label="Firstname: "
+                type="text"
+                placeholder="Type in your firstname"
+              />
+              <FormFieldWrapper
+                forHtml="lastname"
+                label="Lastname: "
+                type="text"
+                placeholder="Type in your lastname"
+              />
+              <FormFieldWrapper
+                forHtml="email"
+                label="Email: "
+                type="text"
+                placeholder="Type in your email"
+              />
+              <FormFieldWrapper
+                forHtml="message"
+                label="Message: "
+                type="text"
+                placeholder="Type in your password"
+              />
 
-            <label htmlFor="email">Email: </label>
-            <FormInput
-              name="email"
-              type="email"
-              placeholder="Type in your email"
-            />
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <button type="submit" className="register__btn--screen">
+                  send message
+                </button>
+                {errorMessage && errorMessage.response && (
+                  <span
+                    style={{
+                      display: "inline-block",
+                      marginLeft: ".5rem",
+                      color: "red",
+                    }}
+                  >
+                    An error occured, please try again
+                  </span>
+                )}
 
-            <label htmlFor="message">Message: </label>
-            <FormInput
-              name="message"
-              type="text"
-              placeholder="Type in your message"
-            />
-            <button>say hi!</button>
-          </fieldset>
-        </form>
+                {message && message.message && (
+                  <span
+                    style={{
+                      display: "inline-block",
+                      color: "green",
+                    }}
+                  >
+                    Thank you for your message!!!
+                  </span>
+                )}
+              </div>
+            </Form>
+          </Formik>
+        </fieldset>
       </div>
     </div>
   );
 }
 
-export default reduxForm({ form: "contact" })(Contact);
+export default Contact;

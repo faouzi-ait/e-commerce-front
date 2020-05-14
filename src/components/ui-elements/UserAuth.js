@@ -1,9 +1,9 @@
 import React from "react";
-import { Tabs } from "@yazanaabed/react-tabs";
 import Header from "./HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import { Tabs } from "@yazanaabed/react-tabs";
 
 export default function UserAuth({ history }) {
   return (

@@ -1,14 +1,16 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { register_user } from "../../redux/features/registration/action";
-import { reduxForm } from "redux-form";
-import FormInput from "../ui-elements/ReduxFormInput";
-
 import LoginHeader from "../ui-elements/LoginHeader";
 
-function Register({ handleSubmit, history }) {
+import FormFieldWrapper from "../ui-elements/FormFieldsWrapper";
+import { Formik, Form } from "formik";
+import { validationSchemaRegister } from "../../utils/utilities";
+
+import { useSelector, useDispatch } from "react-redux";
+import { register_user } from "../../redux/features/registration/action";
+
+function Register() {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.form);
+
   const register_error = useSelector(
     (state) => state.registration.errorMessage.response
   );
@@ -16,8 +18,8 @@ function Register({ handleSubmit, history }) {
     (state) => state.registration.user.message
   );
 
-  const onSubmit = (e) => {
-    const { firstname, lastname, email, password } = fields.register.values;
+  const onSubmit = (values) => {
+    const { firstname, lastname, email, password } = values;
     dispatch(
       register_user(
         {
@@ -36,58 +38,76 @@ function Register({ handleSubmit, history }) {
 
   return (
     <div className="registration__form">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className="responsive__margin">
-          <LoginHeader msg="Create your account for full access" />
-          <label htmlFor="firstname">Firstname: </label>
-          <FormInput
-            name="firstname"
-            type="text"
-            placeholder="Type in your firstname"
-          />
+      <fieldset className="responsive__margin">
+        <LoginHeader msg="Create your account for full access" />
+        <Formik
+          initialValues={{
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "",
+          }}
+          validationSchema={validationSchemaRegister}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <FormFieldWrapper
+              forHtml="firstname"
+              label="Firstname: "
+              type="text"
+              placeholder="Type in your firstname"
+            />
+            <FormFieldWrapper
+              forHtml="lastname"
+              label="Lastname: "
+              type="text"
+              placeholder="Type in your lastname"
+            />
+            <FormFieldWrapper
+              forHtml="email"
+              label="Email: "
+              type="text"
+              placeholder="Type in your email"
+            />
+            <FormFieldWrapper
+              forHtml="password"
+              label="Password: "
+              type="password"
+              placeholder="Type in your password"
+            />
 
-          <label htmlFor="lastname">Lastname: </label>
-          <FormInput
-            name="lastname"
-            type="text"
-            placeholder="Type in your lastname"
-          />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <button type="submit" className="register__btn--screen">
+                register
+              </button>
+              {register_error && (
+                <span
+                  style={{
+                    display: "inline-block",
+                    marginLeft: "1rem",
+                    color: "red",
+                  }}
+                >
+                  {register_error.data.message}
+                </span>
+              )}
 
-          <label htmlFor="email">Email: </label>
-          <FormInput
-            name="email"
-            type="email"
-            placeholder="Type in your email"
-          />
-
-          <label htmlFor="password">Password: </label>
-          <FormInput
-            name="password"
-            type="password"
-            placeholder="Type in your password"
-          />
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <button>register</button>
-            {register_error && (
-              <span
-                style={{
-                  display: "inline-block",
-                  marginLeft: ".5rem",
-                  color: "red",
-                }}
-              >
-                {register_error.data.message}
-              </span>
-            )}
-
-            {register_success && (
-              <span clasName="login__screen">{register_success}</span>
-            )}
-          </div>
-        </fieldset>
-      </form>
+              {register_success && (
+                <span
+                  style={{
+                    display: "inline-block",
+                    color: "green",
+                  }}
+                >
+                  {register_success}
+                </span>
+              )}
+            </div>
+          </Form>
+        </Formik>
+      </fieldset>
     </div>
   );
 }
 
-export default reduxForm({ form: "register" })(Register);
+export default Register;

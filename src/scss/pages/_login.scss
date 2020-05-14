@@ -1,14 +1,6 @@
 input {
+    width: 97%;
     margin-bottom: 1rem;
     padding-bottom: .5rem;
-    border: 0px;
-    border-bottom: $grey_border
-}
-
-input:focus {
-    border-bottom: 1px solid green;
-}
-
-input:invalid {
-    border-bottom: 1px solid red;
+    border: 1px solid $grey_border;
 }
