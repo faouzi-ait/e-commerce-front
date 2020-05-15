@@ -21,8 +21,8 @@ const fetch_listing_failure = (error) => {
 
 export const fetch_listing = () => async (dispatch) => {
   try {
-    const request = await axios.get("data.json");
-    dispatch(fetch_listing_success(request.data));
+    const request = await axios.get("https://e-commerce-back.herokuapp.com/api/v1/products");
+    dispatch(fetch_listing_success(request.data.list));
   } catch (e) {
     dispatch(fetch_listing_failure(e));
   }

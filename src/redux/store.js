@@ -1,5 +1,4 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import { reducer as formReducer } from "redux-form";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
@@ -17,7 +16,6 @@ const combinedReducers = combineReducers({
   shop_items,
   contact,
   isAuthenticated,
-  form: formReducer,
 });
 
 const store = createStore(

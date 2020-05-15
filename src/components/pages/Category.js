@@ -22,18 +22,17 @@ export default function Category() {
       <Header />
       <HeaderMobile />
 
-      {category_selected.map((item) => (
-        <div key={item.id}>
-          <div className="category__item--header">{item.title}</div>
-          <div className="listing__container--cards">
-            {item.items.map((product, i) => (
-              <div key={i}>
-                <StoreItems product={product} />
-              </div>
-            ))}
+      <div className="category__item--header">
+        {id.substring(0, 1).toUpperCase()}
+        {id.substring(1)}
+      </div>
+      <div className="listing__container--cards">
+        {category_selected.map((item) => (
+          <div key={item.id}>
+            <StoreItems product={item} />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
