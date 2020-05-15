@@ -14,11 +14,12 @@ function Contact() {
   const dispatch = useDispatch();
   const { errorMessage, message } = useSelector((state) => state.contact);
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { resetForm }) => {
     const { firstname, lastname, email, message } = values;
     dispatch(
       send_contact_message({ name: firstname, lastname, email, message })
     );
+    resetForm();
   };
 
   return (
@@ -69,6 +70,7 @@ function Contact() {
                 <button type="submit" className="register__btn--screen">
                   send message
                 </button>
+
                 {errorMessage && errorMessage.response && (
                   <span
                     style={{

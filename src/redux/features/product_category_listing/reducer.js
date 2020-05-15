@@ -1,11 +1,14 @@
 import {
   GET_MAIN_LISTING_SUCCESS,
   GET_MAIN_LISTING_FAILURE,
+  FETCH_HOME_LOADING,
+  FETCH_HOME_LOADING_DONE,
 } from "../../types";
 
 const initialState = {
   list: [],
   errorMessage: {},
+  loading: true,
 };
 
 export const get_listing = (state = initialState, action) => {
@@ -14,12 +17,13 @@ export const get_listing = (state = initialState, action) => {
       return {
         list: action.payload,
         errorMessage: {},
+        loading: false,
       };
     case GET_MAIN_LISTING_FAILURE:
       return {
-        ...state,
         list: [],
         errorMessage: action.payload,
+        loading: false,
       };
     default:
       return state;

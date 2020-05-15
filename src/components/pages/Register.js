@@ -18,7 +18,7 @@ function Register() {
     (state) => state.registration.user.message
   );
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { resetForm }) => {
     const { firstname, lastname, email, password } = values;
     dispatch(
       register_user(
@@ -34,6 +34,7 @@ function Register() {
           }, 1500)
       )
     );
+    resetForm();
   };
 
   return (

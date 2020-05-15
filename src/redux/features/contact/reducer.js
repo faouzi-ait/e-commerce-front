@@ -9,13 +9,11 @@ export const contact = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE_SUCCESS:
       return {
-        ...state,
         message: action.payload,
         errorMessage: {},
       };
     case SEND_MESSAGE_FAILURE:
       return {
-        ...state,
         message: {},
         errorMessage: action.payload,
       };
