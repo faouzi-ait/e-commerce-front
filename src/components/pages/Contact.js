@@ -63,7 +63,7 @@ function Contact() {
                 forHtml="message"
                 label="Message: "
                 type="text"
-                placeholder="Type in your password"
+                placeholder="Type in your message"
               />
 
               <div style={{ display: "flex", alignItems: "center" }}>
