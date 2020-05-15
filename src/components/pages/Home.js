@@ -14,8 +14,6 @@ export default function Home() {
     dispatch(fetch_listing());
   }, [dispatch]);
 
-  console.log(product_listing);
-
   return (
     <div>
       <Header />
