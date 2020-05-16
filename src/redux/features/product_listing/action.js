@@ -21,7 +21,6 @@ export const shop_items = () => async (dispatch) => {
     const request = await axios.get(
       "https://e-commerce-back.herokuapp.com/api/v1/product/items"
     );
-    console.log(request.data);
     dispatch(fetch_items_success(request.data.product));
   } catch (e) {
     dispatch(fetch_items_failure(e));

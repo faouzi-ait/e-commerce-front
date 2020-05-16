@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 function Header({ history }) {
   const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(true);
   const dispatch = useDispatch();
 
   const logout = (e) => {
