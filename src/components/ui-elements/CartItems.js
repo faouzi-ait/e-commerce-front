@@ -1,16 +1,27 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  remove_item_from_cart,
+  add_one,
+  remove_one,
+} from "../../redux/features/cart/action";
 
-function CartItems({ item, key }) {
+function CartItems({ item }) {
+  const dispatch = useDispatch();
+
   return (
-    <div className="cart__content--card" key={key}>
+    <div className="cart__content--card">
       <img src={item.imageUrl} alt="img" />
       <div className="cart__content--item">
         <div>{item.name}</div>
         <div>Cost: ${item.price * item.quantity}</div>
         <div>
-          Qty: <span onClick={() => console.log(item._id)}>+</span>
+          Qty: <span onClick={() => dispatch(add_one(item._id))}>+</span>
           {item.quantity}
-          <span onClick={() => console.log(item._id)}>-</span>
+          <span onClick={() => dispatch(remove_one(item._id))}>-</span>
+          <span onClick={() => dispatch(remove_item_from_cart(item._id))}>
+            x
+          </span>
         </div>
       </div>
     </div>

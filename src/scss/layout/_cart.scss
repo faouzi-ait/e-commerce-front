@@ -1,14 +1,18 @@
 .cart__container {
-    position: absolute;
-    width: 35%;
+    position: fixed;
+    width: 18%;
     min-height: 15rem;
+    max-height: 20rem;
     right: 2rem;
     padding: .5rem 1rem;
     border: 2px solid #000;
     background: #fff;
+    overflow: scroll;
     z-index: 9999;
 
     .close__btn {
+        position: fixed;
+        right: 3rem;
         display: inline-block;
         color: #fff;
         margin-top: .2rem;
@@ -47,7 +51,7 @@
             text-align: center;
             font-weight: bolder;
             font-size: 1rem;
-            border: 1px solid #000;
+            border: 1px solid #fff;
             cursor: pointer;
 
             &:hover {

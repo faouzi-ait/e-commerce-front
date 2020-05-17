@@ -1,15 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  add_item_to_cart,
-  remove_item_from_cart,
-  add_one,
-  remove_one,
-} from "../../redux/features/cart/action";
+import { add_item_to_cart, add_one } from "../../redux/features/cart/action";
 
 export default function StoreItems({ product }) {
-  const dispatch = useDispatch();
   const { selectedItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   return (
     <div className="listing__container--card">

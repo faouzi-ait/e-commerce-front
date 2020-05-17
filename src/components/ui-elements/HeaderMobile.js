@@ -19,7 +19,7 @@ function HeaderMobile({ history }) {
   return (
     <div className="mobile__navigation">
       <div onClick={() => setIsOpen(!isOpen)}>
-        <img src="../menu.png" alt="res-menu" width="50" height="50" />
+        <img src="../icons/menu.png" alt="res-menu" width="50" height="50" />
       </div>
 
       {isOpen && (

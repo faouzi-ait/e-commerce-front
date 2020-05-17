@@ -8,7 +8,8 @@ import { NavLink } from "react-router-dom";
 
 function Header({ history }) {
   const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const { selectedItems } = useSelector((state) => state.cart);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const dispatch = useDispatch();
 
   const logout = (e) => {
@@ -21,7 +22,7 @@ function Header({ history }) {
     <div className="top-nav-bar">
       <div className="top-nav-bar__left">
         <NavLink to="/">
-          <img src="../../crown.svg" alt="crown" />
+          <img src="../../icons/crown.svg" alt="crown" />
         </NavLink>
       </div>
       <div className="top-nav-bar__right">
@@ -65,8 +66,23 @@ function Header({ history }) {
               logout
             </a>
           )}
+          {selectedItems.length > 0 && (
+            <span
+              style={{
+                display: "inline-block",
+                position: "relative",
+                color: "#000",
+              }}
+            >
+              {selectedItems.length}
+            </span>
+          )}
           <img
-            src="../../cart.png"
+            src={
+              selectedItems.length > 0
+                ? "../../icons/cart-full.png"
+                : "../../icons/cart.png"
+            }
             alt="cart"
             onClick={() => setIsCartOpen(true)}
           />

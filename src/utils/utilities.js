@@ -1,4 +1,3 @@
-import React from "react";
 import * as Yup from "yup";
 
 export const validationSchemaLogin = Yup.object({
@@ -39,3 +38,16 @@ export const validationSchemaContact = Yup.object({
     .min(3, "Message of 20 characters minimum")
     .required("Message is required"),
 });
+
+
+export const calculateGrandTotalPrice = (cart) => {
+  const grandTotal = cart
+    .map((item) => item.price * item.quantity)
+    .reduce((a, b) => a + b, 0);
+
+  return Number(grandTotal);
+};
+
+export const getItemFromCart = (cart, id) => {
+  return cart.find((item) => item._id === id);
+};

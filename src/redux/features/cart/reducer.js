@@ -1,4 +1,8 @@
 import {
+  calculateGrandTotalPrice,
+  getItemFromCart,
+} from "../../../utils/utilities";
+import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   ADD_ITEM,
@@ -6,41 +10,67 @@ import {
 } from "../../types";
 
 const localStorageKey = "e-commerce_shopping-cart";
+const cartFromStorage = JSON.parse(localStorage.getItem(localStorageKey));
+
 const initialState = {
   selectedItems:
     JSON.parse(localStorage.getItem(localStorageKey)) ||
     localStorage.setItem(localStorageKey, JSON.stringify([])),
   totalCartItems: 0,
-  totalPrice: 0,
+  totalPrice: calculateGrandTotalPrice(cartFromStorage),
   tax: 15,
 };
 
 export const cart = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      const fromStorage = JSON.parse(localStorage.getItem(localStorageKey));
-
-      fromStorage.push({ ...action.payload, quantity: 1 });
-      localStorage.setItem(localStorageKey, JSON.stringify(fromStorage));
-
-      const finalArray = [
-        ...state.selectedItems,
-        { ...action.payload, quantity: 1 },
-      ];
+      cartFromStorage.push({ ...action.payload, quantity: 1 });
+      localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
 
       return {
         ...state,
-        selectedItems: finalArray,
+        selectedItems: cartFromStorage,
+        totalPrice: calculateGrandTotalPrice(cartFromStorage),
       };
     case REMOVE_FROM_CART:
       // REMOVE LOGIC HERE
       return state;
     case ADD_ITEM:
-      // ADD ITEM LOGIC HERE
-      return state;
+      const itemInCart = getItemFromCart(state.selectedItems, action.payload);
+      const index = state.selectedItems.indexOf(itemInCart);
+
+      itemInCart.quantity = itemInCart.quantity + 1;
+      itemInCart.total = itemInCart.quantity * itemInCart.price;
+
+      cartFromStorage.splice(index, 1, itemInCart);
+      localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
+
+      return { ...state, totalPrice: calculateGrandTotalPrice(cartFromStorage) };
+
     case REMOVE_ITEM:
-      // REMOVE ITEM LOGIC HERE
-      return state;
+      const itemFromCart = getItemFromCart(state.selectedItems, action.payload);
+      const indexFromCart = state.selectedItems.indexOf(itemFromCart);
+
+      if (itemFromCart.quantity >= 1) {
+        itemFromCart.quantity = itemFromCart.quantity - 1;
+        itemFromCart.total = itemFromCart.quantity * itemFromCart.price;
+
+        cartFromStorage.splice(indexFromCart, 1, itemFromCart);
+        localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
+        calculateGrandTotalPrice(cartFromStorage);
+      }
+
+      if (itemFromCart.quantity === 0) {
+        cartFromStorage.splice(indexFromCart, 1);
+        calculateGrandTotalPrice(cartFromStorage);
+        localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
+      }
+
+      return {
+        ...state,
+        selectedItems: cartFromStorage,
+        totalPrice: calculateGrandTotalPrice(cartFromStorage),
+      };
     default:
       return state;
   }
