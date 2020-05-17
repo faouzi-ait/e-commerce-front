@@ -24,9 +24,7 @@
     &--card {
         position: relative;
 
-        &:hover {
-            opacity: .75;
-        }
+        &:hover {}
     }
 
     &--addToCart {
@@ -38,8 +36,20 @@
         padding: .75rem 0;
         text-transform: uppercase;
         transform: translate(-50%, -50%);
+        transition: all 300ms linear;
         background: #eee;
+        border: 1px solid #eee;
         cursor: pointer;
+
+        &:hover {
+            border: 1px solid #fff;
+            color: #fff;
+            background: #000 !important;
+        }
+    }
+
+    &--card:hover img {
+        opacity: .75;
     }
 
     &--card:hover &--addToCart {

@@ -87,7 +87,7 @@ function Header({ history }) {
             onClick={() => setIsCartOpen(true)}
           />
         </nav>
-        {isCartOpen && <Cart open={setIsCartOpen} />}
+        {isCartOpen && <Cart open={setIsCartOpen} history={history} />}
       </div>
     </div>
   );

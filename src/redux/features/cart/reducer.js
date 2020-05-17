@@ -7,10 +7,11 @@ import {
   REMOVE_FROM_CART,
   ADD_ITEM,
   REMOVE_ITEM,
+  REMOVE_ALL,
 } from "../../types";
 
 const localStorageKey = "e-commerce_shopping-cart";
-const cartFromStorage = JSON.parse(localStorage.getItem(localStorageKey));
+let cartFromStorage = JSON.parse(localStorage.getItem(localStorageKey));
 
 const initialState = {
   selectedItems:
@@ -33,8 +34,21 @@ export const cart = (state = initialState, action) => {
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
       };
     case REMOVE_FROM_CART:
-      // REMOVE LOGIC HERE
-      return state;
+      const itemInToRemove = getItemFromCart(
+        state.selectedItems,
+        action.payload
+      );
+      const indexItemToRemove = state.selectedItems.indexOf(itemInToRemove);
+
+      cartFromStorage.splice(indexItemToRemove, 1);
+      calculateGrandTotalPrice(cartFromStorage);
+      localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
+
+      return {
+        ...state,
+        selectedItems: cartFromStorage,
+        totalPrice: calculateGrandTotalPrice(cartFromStorage),
+      };
     case ADD_ITEM:
       const itemInCart = getItemFromCart(state.selectedItems, action.payload);
       const index = state.selectedItems.indexOf(itemInCart);
@@ -45,7 +59,10 @@ export const cart = (state = initialState, action) => {
       cartFromStorage.splice(index, 1, itemInCart);
       localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
 
-      return { ...state, totalPrice: calculateGrandTotalPrice(cartFromStorage) };
+      return {
+        ...state,
+        totalPrice: calculateGrandTotalPrice(cartFromStorage),
+      };
 
     case REMOVE_ITEM:
       const itemFromCart = getItemFromCart(state.selectedItems, action.payload);
@@ -70,6 +87,14 @@ export const cart = (state = initialState, action) => {
         ...state,
         selectedItems: cartFromStorage,
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
+      };
+    case REMOVE_ALL:
+      localStorage.setItem(localStorageKey, JSON.stringify([]));
+      cartFromStorage = [];
+
+      return {
+        selectedItems: cartFromStorage,
+        totalPrice: 0,
       };
     default:
       return state;

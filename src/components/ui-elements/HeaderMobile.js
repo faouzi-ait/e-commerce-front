@@ -39,6 +39,14 @@ function HeaderMobile({ history }) {
             >
               Contact
             </NavLink>
+            <NavLink
+              to="/store/checkout"
+              className=""
+              activeClassName="active"
+              exact
+            >
+              Checkout
+            </NavLink>
 
             {!isAuthenticated ? (
               <NavLink to="/login" className="" activeClassName="active" exact>

@@ -55,7 +55,7 @@ function App() {
           path="/dashboard"
           component={isAuthenticated ? Dashboard : Error4O3}
         />
-        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/store/checkout" component={Checkout} />
         <Route exact path="*" component={Error4O4} />
       </Switch>
     </>

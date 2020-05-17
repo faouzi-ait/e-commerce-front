@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_CART,
   ADD_ITEM,
   REMOVE_ITEM,
+  REMOVE_ALL
 } from "../../types";
 
 export const add_item_to_cart = (item) => {
@@ -30,5 +31,11 @@ export const remove_one = (id) => {
   return {
     type: REMOVE_ITEM,
     payload: id,
+  };
+};
+
+export const remove_all = () => {
+  return {
+    type: REMOVE_ALL
   };
 };
