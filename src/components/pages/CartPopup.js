@@ -44,7 +44,6 @@ export default function Cart({ open, history }) {
         >
           {selectedItems && selectedItems.length > 0 && (
             <>
-              {" "}
               <button
                 style={{ margin: "0 auto .35rem", width: "100%" }}
                 onClick={() => dispatch(remove_all())}

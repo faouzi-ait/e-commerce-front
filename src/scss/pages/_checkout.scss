@@ -1,0 +1,82 @@
+.checkout__container {
+    padding-top: 3rem;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+table {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header__th {
+    letter-spacing: 1px;
+    font-size: 1.25rem;
+    opacity: .7;
+}
+
+tr:nth-child(1) th {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+td {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+td:first-child {
+    padding: 1.5rem 0;
+}
+
+.item_image {
+    width: 75%;
+    height: 60%
+}
+
+.chevrons {
+    color: #000;
+    width: 1.75rem;
+    height: 2.2rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1175px) {
+    table {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .item_image {
+        height: 10rem;
+    }
+
+    .cart__container {
+        width: 25% !important;
+    }
+
+    .cart__content--item span {
+        font-size: 1.2rem !important;
+    }
+
+    .cart__item--delete {
+        margin-left: 2rem !important;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 800px) {
+    table {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .item_image {
+        height: 10rem;
+    }
+
+    .cart__container {
+        width: 30% !important;
+    }
+}

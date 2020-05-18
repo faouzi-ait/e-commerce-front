@@ -1,8 +1,6 @@
 import {
   GET_MAIN_LISTING_SUCCESS,
   GET_MAIN_LISTING_FAILURE,
-  FETCH_HOME_LOADING,
-  FETCH_HOME_LOADING_DONE,
 } from "../../types";
 
 const initialState = {
