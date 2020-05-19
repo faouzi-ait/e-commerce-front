@@ -31,6 +31,10 @@ export const login_user = (user, callback) => async (dispatch) => {
       "store_user_token",
       JSON.stringify(request.data.user.token)
     );
+    localStorage.setItem(
+      "store_user_email",
+      JSON.stringify(request.data.user.email)
+    );
     dispatch(setUserAuthenticated({ type: SET_USER_AUTHENTICATED }));
     callback();
   } catch (e) {

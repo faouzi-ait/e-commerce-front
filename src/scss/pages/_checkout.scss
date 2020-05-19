@@ -41,6 +41,11 @@ td:first-child {
     cursor: pointer;
 }
 
+.total__style {
+    font-size: 1.25rem;
+}
+
+
 @media screen and (min-width: 801px) and (max-width: 1175px) {
     table {
         width: 90%;

@@ -11,7 +11,9 @@ import HeaderMobile from "../ui-elements/HeaderMobile";
 import CheckoutDisplay from "../ui-elements/CheckoutDisplay";
 
 function Checkout() {
-  const { selectedItems } = useSelector((state) => state.cart);
+  const { selectedItems, totalPrice, tax, totalToCharge } = useSelector(
+    (state) => state.cart
+  );
   const dispatch = useDispatch();
 
   return (
@@ -31,14 +33,19 @@ function Checkout() {
             </tr>
           </thead>
           <tbody>
-            {selectedItems.length > 0 ? (
-              <CheckoutDisplay
-                selectedItems={selectedItems}
-                dispatch={dispatch}
-                add_one={add_one}
-                remove_one={remove_one}
-                remove_item_from_cart={remove_item_from_cart}
-              />
+            {selectedItems && selectedItems.length > 0 ? (
+              <>
+                <CheckoutDisplay
+                  selectedItems={selectedItems}
+                  dispatch={dispatch}
+                  add_one={add_one}
+                  remove_one={remove_one}
+                  remove_item_from_cart={remove_item_from_cart}
+                  totalPrice={totalPrice}
+                  totalToCharge={totalToCharge}
+                  tax={tax}
+                />
+              </>
             ) : (
               <tr>
                 <th

@@ -1,4 +1,5 @@
 import React from "react";
+import Paypal from "../../paypal/Paypal";
 
 function CheckoutDisplay({
   selectedItems,
@@ -6,13 +7,16 @@ function CheckoutDisplay({
   add_one,
   remove_one,
   remove_item_from_cart,
+  totalPrice,
+  totalToCharge,
+  tax,
 }) {
   return (
     <>
       {selectedItems.map((item, i) => (
         <tr key={i}>
           <td style={{ width: "30%" }}>
-            <img src={item.imageUrl} alt="img" className="item_image"/>
+            <img src={item.imageUrl} alt="img" className="item_image" />
           </td>
           <td>{item.name}</td>
           <td>
@@ -51,6 +55,26 @@ function CheckoutDisplay({
           </td>
         </tr>
       ))}
+      <tr className="total__style">
+        <td colSpan="5" style={{ borderBottom: "0px" }}>
+          Gross Total: ${totalPrice}
+        </td>
+      </tr>
+      <tr className="total__style">
+        <td colSpan="5" style={{ borderBottom: "0px" }}>
+          Tax: {tax}%
+        </td>
+      </tr>
+      <tr className="total__style">
+        <td colSpan="5" style={{ borderBottom: "0px" }}>
+          Grand Total: ${totalToCharge}
+        </td>
+      </tr>
+      <tr className="total__style">
+        <td colSpan="5" style={{ borderBottom: "0px" }}>
+          <Paypal />
+        </td>
+      </tr>
     </>
   );
 }

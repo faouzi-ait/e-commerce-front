@@ -11,15 +11,23 @@ import {
 } from "../../types";
 
 const localStorageKey = "e-commerce_shopping-cart";
+const tax = 15;
 let cartFromStorage = JSON.parse(localStorage.getItem(localStorageKey));
+
+const totalToCharge = () => {
+  return (
+    (calculateGrandTotalPrice(cartFromStorage) * tax) / 100 +
+    calculateGrandTotalPrice(cartFromStorage)
+  );
+};
 
 const initialState = {
   selectedItems:
     JSON.parse(localStorage.getItem(localStorageKey)) ||
     localStorage.setItem(localStorageKey, JSON.stringify([])),
-  totalCartItems: 0,
+  totalToCharge: totalToCharge(),
   totalPrice: calculateGrandTotalPrice(cartFromStorage),
-  tax: 15,
+  tax: tax,
 };
 
 export const cart = (state = initialState, action) => {
@@ -32,6 +40,7 @@ export const cart = (state = initialState, action) => {
         ...state,
         selectedItems: cartFromStorage,
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
+        totalToCharge: totalToCharge(),
       };
     case REMOVE_FROM_CART:
       const itemInToRemove = getItemFromCart(
@@ -48,6 +57,7 @@ export const cart = (state = initialState, action) => {
         ...state,
         selectedItems: cartFromStorage,
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
+        totalToCharge: totalToCharge(),
       };
     case ADD_ITEM:
       const itemInCart = getItemFromCart(state.selectedItems, action.payload);
@@ -62,6 +72,7 @@ export const cart = (state = initialState, action) => {
       return {
         ...state,
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
+        totalToCharge: totalToCharge(),
       };
 
     case REMOVE_ITEM:
@@ -87,6 +98,7 @@ export const cart = (state = initialState, action) => {
         ...state,
         selectedItems: cartFromStorage,
         totalPrice: calculateGrandTotalPrice(cartFromStorage),
+        totalToCharge: totalToCharge(),
       };
     case REMOVE_ALL:
       localStorage.setItem(localStorageKey, JSON.stringify([]));
@@ -95,6 +107,7 @@ export const cart = (state = initialState, action) => {
       return {
         selectedItems: cartFromStorage,
         totalPrice: 0,
+        totalToCharge: totalToCharge(),
       };
     default:
       return state;
