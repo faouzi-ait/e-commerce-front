@@ -10,8 +10,8 @@ import {
   REMOVE_ALL,
 } from "../../types";
 
-const localStorageKey = "e-commerce_shopping-cart";
 const tax = 15;
+const localStorageKey = "e-commerce_shopping-cart";
 let cartFromStorage = JSON.parse(localStorage.getItem(localStorageKey));
 
 const totalToCharge = () => {

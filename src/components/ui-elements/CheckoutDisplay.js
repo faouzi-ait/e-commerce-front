@@ -2,6 +2,7 @@ import React from "react";
 import Paypal from "../../paypal/Paypal";
 
 function CheckoutDisplay({
+  isAuthenticated,
   selectedItems,
   dispatch,
   add_one,
@@ -70,11 +71,19 @@ function CheckoutDisplay({
           Grand Total: ${totalToCharge}
         </td>
       </tr>
-      <tr className="total__style">
-        <td colSpan="5" style={{ borderBottom: "0px" }}>
-          <Paypal />
-        </td>
-      </tr>
+      {isAuthenticated.state ? (
+        <tr className="total__style">
+          <td colSpan="5" style={{ borderBottom: "0px" }}>
+            <Paypal />
+          </td>
+        </tr>
+      ) : (
+        <tr className="total__style">
+          <td colSpan="5" style={{ borderBottom: "0px", fontStyle: "italic" }}>
+            Please login to initiate checkout
+          </td>
+        </tr>
+      )}
     </>
   );
 }

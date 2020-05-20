@@ -14,6 +14,9 @@ function Checkout() {
   const { selectedItems, totalPrice, tax, totalToCharge } = useSelector(
     (state) => state.cart
   );
+  const { isAuthenticated } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
 
   return (
@@ -44,6 +47,7 @@ function Checkout() {
                   totalPrice={totalPrice}
                   totalToCharge={totalToCharge}
                   tax={tax}
+                  isAuthenticated={isAuthenticated}
                 />
               </>
             ) : (
@@ -53,6 +57,7 @@ function Checkout() {
                   style={{
                     paddingTop: "10rem",
                     fontSize: "1.75rem",
+                    border: "none"
                   }}
                 >
                   Your cart is currently empty
