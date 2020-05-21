@@ -39,7 +39,6 @@ export const validationSchemaContact = Yup.object({
     .required("Message is required"),
 });
 
-
 export const calculateGrandTotalPrice = (cart) => {
   const grandTotal = cart
     .map((item) => item.price * item.quantity)
@@ -51,3 +50,18 @@ export const calculateGrandTotalPrice = (cart) => {
 export const getItemFromCart = (cart, id) => {
   return cart.find((item) => item._id === id);
 };
+
+export function parseJwt(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+
+  return JSON.parse(jsonPayload);
+}

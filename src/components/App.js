@@ -28,6 +28,7 @@ function App() {
 
     if (token && token !== undefined) {
       dispatch({ type: SET_USER_AUTHENTICATED });
+
     } else {
       dispatch({ type: SET_USER_NOT_AUTHENTICATED });
     }

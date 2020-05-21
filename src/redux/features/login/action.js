@@ -1,10 +1,12 @@
+import axios from "axios";
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
   SET_USER_AUTHENTICATED,
 } from "../../types";
 import { setUserAuthenticated } from "../../features/auth_status/action";
-import axios from "axios";
+import { parseJwt } from "../../../utils/utilities";
+
 
 const login_user_success = (user) => {
   return {
@@ -33,7 +35,15 @@ export const login_user = (user, callback) => async (dispatch) => {
     );
     localStorage.setItem(
       "store_user_email",
-      JSON.stringify(request.data.user.email)
+      JSON.stringify(parseJwt(request.data.user.token).email)
+    );
+    localStorage.setItem(
+      "store_user_role",
+      JSON.stringify(parseJwt(request.data.user.token).role)
+    );
+    localStorage.setItem(
+      "store_user_token_issue_date",
+      JSON.stringify(parseJwt(request.data.user.token).iat)
     );
     dispatch(setUserAuthenticated({ type: SET_USER_AUTHENTICATED }));
     callback();

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import Cart from "../pages/CartPopup";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_USER_NOT_AUTHENTICATED } from "../../redux/types";
-import { NavLink } from "react-router-dom";
 
 function Header({ history }) {
   const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
@@ -15,6 +15,9 @@ function Header({ history }) {
   const logout = (e) => {
     dispatch({ type: SET_USER_NOT_AUTHENTICATED });
     localStorage.removeItem("store_user_token");
+    localStorage.removeItem("store_user_email");
+    localStorage.removeItem("store_user_role");
+    localStorage.removeItem("store_user_token_issue_date");
     history.push("/");
   };
 
@@ -52,6 +55,19 @@ function Header({ history }) {
             Contact
           </NavLink>
 
+          {isAuthenticated ? (
+            <NavLink
+              to="/dashboard"
+              className="links--items"
+              activeClassName="active"
+              exact
+            >
+              dashboard
+            </NavLink>
+          ) : (
+            ""
+          )}
+
           {!isAuthenticated ? (
             <NavLink
               to="/login"
@@ -66,6 +82,7 @@ function Header({ history }) {
               logout
             </a>
           )}
+
           {selectedItems.length > 0 && (
             <span
               style={{
