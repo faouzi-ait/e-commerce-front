@@ -5,9 +5,9 @@ function DashboardProfile({ user }) {
     <div
       style={{
         width: "30%",
-        margin: "0 auto",
+        margin: "10px auto 0",
         fontSize: "1.2rem",
-        textAlign: "center"
+        textAlign: "center",
       }}
     >
       <div style={{ marginBottom: ".5rem" }}>
@@ -19,9 +19,7 @@ function DashboardProfile({ user }) {
         {user.lastname}
       </div>
       <div>
-        <span style={{ fontWeight: "bold", marginRight: "7px" }}>
-          Since:
-        </span>
+        <span style={{ fontWeight: "bold", marginRight: "7px" }}>Since:</span>
         {user.createdAt.split("T")[0]}
       </div>
     </div>
