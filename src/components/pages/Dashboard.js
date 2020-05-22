@@ -7,24 +7,27 @@ import { storage } from "../../config/firebase_config";
 import Header from "../ui-elements/HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
 import DashboardProfile from "../ui-elements/DashboardProfile";
+import DashboardOrderTable from "../ui-elements/DashboardOrderTable";
 
-function Dashboard({ history }) {
-  // const [, forceUpdate] = useReducer((x) => x + 1, 0);
-  const [update, setUpdate] = useState(1);
-  const [photoUpdate, setPhotoUpdate] = useState(false);
-  const userEmail = localStorage.getItem("store_user_email");
-  const [file, setFile] = useState("");
+function Dashboard() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.profile.profile);
   const { loading } = useSelector((state) => state.profile);
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [progress, setProgress] = useState(0);
+  const [photoUpdate, setPhotoUpdate] = useState(false);
+  const [file, setFile] = useState("");
+  const userEmail = localStorage.getItem("store_user_email");
 
   useEffect(() => {
     console.log(userEmail);
     dispatch(profile(userEmail.replace(/"/g, "")));
-  }, [userEmail, dispatch, update]);
+  }, [userEmail, dispatch]);
 
   const uploadPhoto = (e) => {
     const id = userEmail.replace(/"/g, "");
+
+    if (!file.name) return alert("Please select an image");
 
     const uploadTask = storage
       .ref(`${id}/avatar/${file.name.substring(0, 40)}`)
@@ -32,7 +35,12 @@ function Dashboard({ history }) {
 
     uploadTask.on(
       "state_changed",
-      (snapshot) => console.log(snapshot),
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
       (error) => console.log(error),
       () => {
         storage
@@ -46,14 +54,22 @@ function Dashboard({ history }) {
           });
       }
     );
-    setPhotoUpdate(false)
-    setUpdate(prev => prev + 1)
+    setPhotoUpdate(false);
+    forceUpdate();
   };
 
   const getFile = (e) => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
     }
+  };
+
+  const shwoUploadCompletedMsg = (_) => {
+    setTimeout(() => {
+      setProgress(0);
+    }, 2000);
+
+    return <div style={{ color: "red" }}>Upload Complete</div>;
   };
 
   return (
@@ -106,6 +122,7 @@ function Dashboard({ history }) {
                         id="upload"
                         style={{ border: "0", marginBottom: "-2rem" }}
                         onChange={getFile}
+                        accept="image/x-png,image/gif,image/jpeg"
                       />
                       <button
                         style={{
@@ -141,9 +158,13 @@ function Dashboard({ history }) {
                       >
                         Upload a new photo
                       </span>
+                      {progress === 100 && shwoUploadCompletedMsg()}
                     </div>
                   )}
                   <DashboardProfile user={user} loading={loading} />
+                  {user.history.length > 0 && (
+                    <DashboardOrderTable user={user} />
+                  )}
                 </>
               ) : (
                 <div
