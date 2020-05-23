@@ -14,7 +14,8 @@ export default function LoginHeader({ msg }) {
         lineHeight: "2rem",
         background: "#000",
         borderRadius: "3px",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        width: "95%"
       }}
     >
       <p>{msg}</p>

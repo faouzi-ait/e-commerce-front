@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { profile } from "../../redux/features/user_profile/action";
 import { update_profile } from "../../redux/features/update_avatar/action";
 import { storage } from "../../config/firebase_config";
 
+import LoginHeader from "../ui-elements/LoginHeader";
 import Header from "../ui-elements/HeaderDesktop";
 import HeaderMobile from "../ui-elements/HeaderMobile";
 import DashboardProfile from "../ui-elements/DashboardProfile";
@@ -13,7 +14,6 @@ function Dashboard() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.profile.profile);
   const { loading } = useSelector((state) => state.profile);
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const [progress, setProgress] = useState(0);
   const [photoUpdate, setPhotoUpdate] = useState(false);
   const [file, setFile] = useState("");
@@ -55,7 +55,6 @@ function Dashboard() {
       }
     );
     setPhotoUpdate(false);
-    forceUpdate();
   };
 
   const getFile = (e) => {
@@ -163,7 +162,11 @@ function Dashboard() {
                   )}
                   <DashboardProfile user={user} loading={loading} />
                   {user.history.length > 0 && (
-                    <DashboardOrderTable user={user} />
+                    <>
+                    <div style={{marginBottom: "1.5rem"}}></div>
+                      <LoginHeader msg="Order History" />
+                      <DashboardOrderTable user={user} />
+                    </>
                   )}
                 </>
               ) : (
