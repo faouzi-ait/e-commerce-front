@@ -1,5 +1,6 @@
 import React from "react";
 import Paypal from "../../paypal/Paypal";
+import StripeCheckoutBtn from "../../stripe/StripeCheckout";
 
 function CheckoutDisplay({
   isAuthenticated,
@@ -73,8 +74,11 @@ function CheckoutDisplay({
       </tr>
       {isAuthenticated.state ? (
         <tr className="total__style">
-          <td colSpan="5" style={{ borderBottom: "0px" }}>
+          <td colSpan="2" style={{ borderBottom: "0px" }}>
             <Paypal />
+          </td>
+          <td colSpan="2" style={{ borderBottom: "0px" }}>
+            <StripeCheckoutBtn />
           </td>
         </tr>
       ) : (

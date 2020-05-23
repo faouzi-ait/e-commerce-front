@@ -9,6 +9,7 @@ import { get_listing } from "./features/product_category_listing/reducer";
 import { shop_items } from "./features/product_listing/reducer";
 import { contact } from "./features/contact/reducer";
 import { cart } from "./features/cart/reducer";
+import { payment } from "./features/payment/reducer";
 import { isAuthenticated } from "./features/auth_status/reducer";
 
 const combinedReducers = combineReducers({
@@ -19,6 +20,7 @@ const combinedReducers = combineReducers({
   shop_items,
   contact,
   cart,
+  payment,
   isAuthenticated,
 });
 

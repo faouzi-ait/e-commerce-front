@@ -28,6 +28,7 @@ const MyApp = () => {
     let date = new Date();
     const purchasedItems = [...selectedItems, date.toISOString()];
 
+    // TO REFACTOR TO PASS THROUGH REDUX
     axios
       .all([
         axios.post(
@@ -62,6 +63,7 @@ const MyApp = () => {
         })
       )
       .catch((err) => console.log(err));
+
     dispatch(remove_all());
 
     setTimeout(() => {

@@ -163,7 +163,7 @@ function Dashboard() {
                   <DashboardProfile user={user} loading={loading} />
                   {user.history.length > 0 && (
                     <>
-                    <div style={{marginBottom: "1.5rem"}}></div>
+                      <div style={{ marginBottom: "1.5rem" }}></div>
                       <LoginHeader msg="Order History" />
                       <DashboardOrderTable user={user} />
                     </>
