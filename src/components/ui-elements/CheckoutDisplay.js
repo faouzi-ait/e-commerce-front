@@ -17,7 +17,7 @@ function CheckoutDisplay({
     <>
       {selectedItems.map((item, i) => (
         <tr key={i} className="responsive__margin">
-          <td style={{ width: "30%" }} className="item_image">
+          <td className="item_image">
             <img src={item.imageUrl} alt="img" />
           </td>
           <td>{item.name}</td>
@@ -58,32 +58,36 @@ function CheckoutDisplay({
         </tr>
       ))}
       <tr className="total__style">
-        <td colSpan="5" style={{ borderBottom: "0px" }}>
+        <td colSpan="5" className="border__bottom" >
           Gross Total: ${totalPrice}
         </td>
       </tr>
       <tr className="total__style">
-        <td colSpan="5" style={{ borderBottom: "0px" }}>
+        <td colSpan="5" className="border__bottom" >
           Tax: {tax}%
         </td>
       </tr>
       <tr className="total__style">
-        <td colSpan="5" style={{ borderBottom: "0px" }}>
+        <td colSpan="5" className="border__bottom" >
           Grand Total: ${totalToCharge}
         </td>
       </tr>
       {isAuthenticated.state ? (
-        <tr className="total__style">
-          <td colSpan="2" style={{ borderBottom: "0px" }}>
-            <Paypal />
-          </td>
-          <td colSpan="2" style={{ borderBottom: "0px" }}>
-            <StripeCheckoutBtn />
-          </td>
-        </tr>
+        <>
+          <tr className="total__style">
+            <td colSpan="5" className="border__bottom" >
+              <Paypal />
+            </td>
+          </tr>
+          <tr className="total__style">
+            <td colSpan="5" className="border__bottom" >
+              <StripeCheckoutBtn />
+            </td>
+          </tr>
+        </>
       ) : (
         <tr className="total__style">
-          <td colSpan="5" style={{ borderBottom: "0px", fontStyle: "italic" }}>
+          <td colSpan="5" className="border__bottom">
             Please login to initiate checkout
           </td>
         </tr>

@@ -45,6 +45,10 @@ td:first-child {
     font-size: 1.25rem;
 }
 
+.border__bottom {
+    border-bottom: 0;
+}
+
 
 @media screen and (min-width: 801px) and (max-width: 1175px) {
     table {
@@ -54,7 +58,7 @@ td:first-child {
     }
 
     .item_image {
-        height: 10rem;
+        width: 6rem;
     }
 
     .cart__container {
@@ -77,11 +81,16 @@ td:first-child {
         text-align: center;
     }
 
-    .item_image {
-        height: 10rem;
+    .item_image img {
+        width: 5rem !important;
+        height: 5rem !important;
     }
 
     .cart__container {
         width: 30% !important;
+    }
+
+    .item_image {
+        width: 6rem;
     }
 }
