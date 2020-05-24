@@ -75,7 +75,10 @@ function Dashboard() {
     <div>
       <Header />
       <HeaderMobile />
-      <div style={{ width: "75%", margin: "5rem auto" }}>
+      <div
+        style={{ width: "75%", margin: "5rem auto" }}
+        id="dashboard__container"
+      >
         <h1
           style={{
             textAlign: "center",
@@ -137,24 +140,10 @@ function Dashboard() {
                     </div>
                   ) : (
                     <div
-                      style={{
-                        textAlign: "center",
-                        width: "32%",
-                        margin: "0 auto",
-                        cursor: "pointer",
-                      }}
+                      className="new__photo"
                       onClick={() => setPhotoUpdate(!photoUpdate)}
                     >
-                      <span
-                        style={{
-                          display: "inline-block",
-                          marginBottom: ".25rem",
-                          textAlign: "center",
-                          border: "1px solid #000",
-                          padding: "4px 10px",
-                          borderRadius: "3px",
-                        }}
-                      >
+                      <span className="new__photo--btn">
                         Upload a new photo
                       </span>
                       {progress === 100 && shwoUploadCompletedMsg()}
@@ -170,15 +159,7 @@ function Dashboard() {
                   )}
                 </>
               ) : (
-                <div
-                  style={{
-                    textAlign: "center",
-                    fontSize: "1.6rem",
-                    padding: "5rem 0",
-                  }}
-                >
-                  Loading profile...
-                </div>
+                <div className="loading__profile">Loading profile...</div>
               )}
             </div>
           </>

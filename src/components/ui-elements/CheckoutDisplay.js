@@ -16,9 +16,9 @@ function CheckoutDisplay({
   return (
     <>
       {selectedItems.map((item, i) => (
-        <tr key={i}>
-          <td style={{ width: "30%" }}>
-            <img src={item.imageUrl} alt="img" className="item_image" />
+        <tr key={i} className="responsive__margin">
+          <td style={{ width: "30%" }} className="item_image">
+            <img src={item.imageUrl} alt="img" />
           </td>
           <td>{item.name}</td>
           <td>

@@ -1,0 +1,48 @@
+.dashboard__profile--container {
+    width: 30%;
+    margin: 10px auto 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.new__photo--btn {
+    display: inline-block;
+    margin-bottom: .25rem;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
+.new__photo {
+    text-align: center;
+    width: 32%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.loading__profile {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard__profile--container {
+        width: 100% !important;
+    }
+
+    .new__photo {
+        width: 50%;
+    }
+
+    .new__photo--btn {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #dashboard__container {
+        margin: 1rem 0 !important
+    }
+}

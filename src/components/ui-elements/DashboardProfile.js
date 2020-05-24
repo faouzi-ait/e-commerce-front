@@ -2,14 +2,7 @@ import React from "react";
 
 function DashboardProfile({ user }) {
   return (
-    <div
-      style={{
-        width: "30%",
-        margin: "10px auto 0",
-        fontSize: "1.2rem",
-        textAlign: "center",
-      }}
-    >
+    <div className="dashboard__profile--container">
       <div style={{ marginBottom: ".5rem" }}>
         <span style={{ fontWeight: "bold" }}>Firstname: </span>
         {user.firstname}

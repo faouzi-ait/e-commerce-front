@@ -17,8 +17,8 @@ function DashboardOrderTable({ user }) {
                 fontWeight: "bold",
               }}
             >
-              <td>Order Date:</td>
               <td>{item[item.length - 1].split("T")[0]}</td>
+              <td></td>
               <td></td>
               <td></td>
             </tr>
