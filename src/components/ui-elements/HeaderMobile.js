@@ -48,6 +48,14 @@ function HeaderMobile({ history }) {
               Checkout
             </NavLink>
 
+            {isAuthenticated ? (
+              <a href="/dashboard" className="" activeClassName="active" exact>
+                Dashboard
+              </a>
+            ) : (
+              ""
+            )}
+
             {!isAuthenticated ? (
               <NavLink to="/login" className="" activeClassName="active" exact>
                 Member
