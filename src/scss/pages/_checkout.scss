@@ -4,7 +4,7 @@
 }
 
 table {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -26,12 +26,13 @@ td {
 }
 
 td:first-child {
+    width: 20%;
     padding: 1.5rem 0;
 }
 
-.item_image {
-    width: 75%;
-    height: 60%
+.item_image img {
+    width: 10rem;
+    height: 10rem
 }
 
 .chevrons {
