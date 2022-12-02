@@ -9,7 +9,7 @@ import Loader from "../ui-elements/Loader";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const { list, loading } = useSelector((state) => state.get_listing);
+  const { list, loading } = useSelector((state) => state?.get_listing);
 
   useEffect(() => {
     dispatch(fetch_listing());
@@ -25,7 +25,7 @@ export default function Home() {
           {loading ? (
             <Loader />
           ) : (
-            list.map((item, i) => <HomeListing item={item} key={i} />)
+            list?.map((item, i) => <HomeListing item={item} key={i} />)
           )}
         </div>
       </div>
