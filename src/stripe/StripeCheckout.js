@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import StripeCheckoutBtn from "react-stripe-checkout";
-import { payment_call } from "../redux/features/payment/action";
-import { remove_all } from "../redux/features/cart/action";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import StripeCheckoutBtn from 'react-stripe-checkout';
+import { payment_call } from '../redux/features/payment/action';
+import { remove_all } from '../redux/features/cart/action';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function StripeCheckout() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { selectedItems, totalToCharge } = useSelector((state) => state.cart);
-  const [usertoken, setUserToken] = useState("");
-  const [userEmail, setUserEmail] = useState("");
+  const [usertoken, setUserToken] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const stripePriceConversion = totalToCharge * 100;
   const key = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
@@ -20,14 +20,14 @@ function StripeCheckout() {
   }, []);
 
   const getToken = () => {
-    setUserToken(localStorage.getItem("store_user_token"));
-    setUserEmail(localStorage.getItem("store_user_email"));
+    setUserToken(localStorage.getItem('store_user_token'));
+    setUserEmail(localStorage.getItem('store_user_email'));
   };
 
   const onToken = (token) => {
     let date = new Date();
-    let filteredToken = usertoken.replace(/"/g, "");
-    let filteredEmail = userEmail.replace(/"/g, "");
+    let filteredToken = usertoken.replace(/"/g, '');
+    let filteredEmail = userEmail.replace(/"/g, '');
     const purchasedItems = [...selectedItems, date.toISOString()];
 
     dispatch(
@@ -41,7 +41,7 @@ function StripeCheckout() {
     axios
       .all([
         axios.post(
-          `https://e-commerce-back.herokuapp.com/api/v1/confirmation/message`,
+          `https://clean-pumps-tick.cyclic.app/api/v1/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -54,7 +54,7 @@ function StripeCheckout() {
           }
         ),
         axios.post(
-          `https://e-commerce-back.herokuapp.com/api/v1/order/userHistory/${filteredEmail}`,
+          `https://clean-pumps-tick.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },
@@ -76,7 +76,7 @@ function StripeCheckout() {
     dispatch(remove_all());
 
     setTimeout(() => {
-      history.push("/dashboard");
+      history.push('/dashboard');
     }, 500);
   };
 

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { STRIPE_PAYMENT_SUCCESS, STRIPE_PAYMENT_FAILURE } from "../../types";
+import axios from 'axios';
+import { STRIPE_PAYMENT_SUCCESS, STRIPE_PAYMENT_FAILURE } from '../../types';
 
 const payment_success = (user) => {
   return {
@@ -16,12 +16,12 @@ const payment_failure = (error) => {
 };
 
 export const payment_call = (body) => async (dispatch) => {
-  const token = localStorage.getItem("store_user_token");
-  const filteredToken = token.replace(/"/g, "");
+  const token = localStorage.getItem('store_user_token');
+  const filteredToken = token.replace(/"/g, '');
 
   try {
     const request = await axios.post(
-      "https://e-commerce-back.herokuapp.com/api/v1/checkout/payment",
+      'https://clean-pumps-tick.cyclic.app/api/v1/checkout/payment',
       body,
       {
         headers: {

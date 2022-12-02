@@ -1,9 +1,9 @@
 import {
   GET_MAIN_LISTING_SUCCESS,
   GET_MAIN_LISTING_FAILURE,
-} from "../../types";
+} from '../../types';
 
-import axios from "axios";
+import axios from 'axios';
 
 const fetch_listing_success = (product_list) => {
   return {
@@ -22,7 +22,7 @@ const fetch_listing_failure = (error) => {
 export const fetch_listing = () => async (dispatch) => {
   try {
     const request = await axios.get(
-      "https://e-commerce-back.herokuapp.com/api/v1/products"
+      'https://clean-pumps-tick.cyclic.app/api/v1/products'
     );
     dispatch(fetch_listing_success(request.data.list));
   } catch (e) {

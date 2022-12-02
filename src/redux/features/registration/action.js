@@ -1,5 +1,5 @@
-import { REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE } from "../../types";
-import axios from "axios";
+import { REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE } from '../../types';
+import axios from 'axios';
 
 const register_user_success = (user) => {
   return {
@@ -18,7 +18,7 @@ const register_user_failure = (error) => {
 export const register_user = (user, callback) => async (dispatch) => {
   try {
     const request = await axios.post(
-      "https://e-commerce-back.herokuapp.com/api/v1/auth",
+      'https://clean-pumps-tick.cyclic.app/api/v1/auth',
       user
     );
     dispatch(register_user_success(request.data));

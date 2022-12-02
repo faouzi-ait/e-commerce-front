@@ -1,5 +1,5 @@
-import { SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE } from "../../types";
-import axios from "axios";
+import { SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE } from '../../types';
+import axios from 'axios';
 
 const contact_success = (message) => {
   return {
@@ -18,7 +18,7 @@ const contact_failure = (error) => {
 export const send_contact_message = (message) => async (dispatch) => {
   try {
     const request = await axios.post(
-      "https://e-commerce-back.herokuapp.com/api/v1/contact/message",
+      'https://clean-pumps-tick.cyclic.app/api/v1/contact/message',
       message
     );
     dispatch(contact_success(request.data));

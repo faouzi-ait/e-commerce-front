@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   UPDATE_USER_AVATAR_SUCCESS,
   UPDATE_USER_AVATAR_FAILURE,
-} from "../../types";
+} from '../../types';
 
 const update_user_avatar_success = (user) => {
   return {
@@ -19,12 +19,12 @@ const update_user_avatar_failure = (error) => {
 };
 
 export const update_profile = (email, body) => async (dispatch) => {
-  const token = localStorage.getItem("store_user_token");
-  const filteredToken = token.replace(/"/g, "");
+  const token = localStorage.getItem('store_user_token');
+  const filteredToken = token.replace(/"/g, '');
 
-  try {
+  https: try {
     const request = await axios.post(
-      "https://e-commerce-back.herokuapp.com/api/v1/user/updateAvatar/" + email,
+      'https://clean-pumps-tick.cyclic.app/api/v1/user/updateAvatar/' + email,
       body,
       {
         headers: {
