@@ -24,7 +24,7 @@ const login_user_failure = (error) => {
 export const login_user = (user, callback) => async (dispatch) => {
   try {
     const request = await axios.post(
-      'http://localhost:5000/api/v1/login',
+      'https://clean-pumps-tick.cyclic.app/api/v1/login',
       user
     );
     dispatch(login_user_success(request.data));
