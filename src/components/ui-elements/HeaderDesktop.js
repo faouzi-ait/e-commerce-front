@@ -7,8 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { SET_USER_NOT_AUTHENTICATED } from "../../redux/types";
 
 function Header({ history }) {
-  const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
-  const { selectedItems } = useSelector((state) => state.cart);
+  const isAuthenticated = useSelector((state) => state?.isAuthenticated?.state);
+  const { selectedItems } = useSelector((state) => state?.cart);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -83,7 +83,7 @@ function Header({ history }) {
             </a>
           )}
 
-          {selectedItems.length > 0 && (
+          {selectedItems?.length > 0 && (
             <span
               style={{
                 display: "inline-block",
@@ -91,12 +91,12 @@ function Header({ history }) {
                 color: "#000",
               }}
             >
-              {selectedItems.length}
+              {selectedItems?.length}
             </span>
           )}
           <img
             src={
-              selectedItems.length > 0
+              selectedItems?.length > 0
                 ? "../../icons/cart-full.png"
                 : "../../icons/cart.png"
             }

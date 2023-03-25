@@ -21,7 +21,7 @@ export const payment_call = (body) => async (dispatch) => {
 
   try {
     const request = await axios.post(
-      'https://clean-pumps-tick.cyclic.app/api/v1/checkout/payment',
+      'http://localhost:5000/api/v1/checkout/payment',
       body,
       {
         headers: {

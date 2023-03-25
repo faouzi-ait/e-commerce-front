@@ -40,8 +40,7 @@ export const validationSchemaContact = Yup.object({
 });
 
 export const calculateGrandTotalPrice = (cart) => {
-  const grandTotal = cart
-    .map((item) => item.price * item.quantity)
+  const grandTotal = cart?.map((item) => item.price * item.quantity)
     .reduce((a, b) => a + b, 0);
 
   return Number(grandTotal);

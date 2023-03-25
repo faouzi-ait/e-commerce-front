@@ -33,7 +33,7 @@ const initialState = {
 export const cart = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      cartFromStorage.push({ ...action.payload, quantity: 1 });
+      cartFromStorage.push({ ...action?.payload, quantity: 1 });
       localStorage.setItem(localStorageKey, JSON.stringify(cartFromStorage));
 
       return {

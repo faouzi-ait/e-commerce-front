@@ -12,7 +12,7 @@ import CheckoutDisplay from "../ui-elements/CheckoutDisplay";
 
 function Checkout() {
   const { selectedItems, totalPrice, tax, totalToCharge } = useSelector(
-    (state) => state.cart
+    (state) => state?.cart
   );
   const { isAuthenticated } = useSelector(
     (state) => state
@@ -36,7 +36,7 @@ function Checkout() {
             </tr>
           </thead>
           <tbody>
-            {selectedItems && selectedItems.length > 0 ? (
+            {selectedItems && selectedItems?.length > 0 ? (
               <>
                 <CheckoutDisplay
                   selectedItems={selectedItems}

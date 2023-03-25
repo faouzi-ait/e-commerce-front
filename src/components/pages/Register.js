@@ -12,10 +12,10 @@ function Register() {
   const dispatch = useDispatch();
 
   const register_error = useSelector(
-    (state) => state.registration.errorMessage.response
+    (state) => state?.registration?.errorMessage?.response
   );
   const register_success = useSelector(
-    (state) => state.registration.user.message
+    (state) => state?.registration?.user?.message
   );
 
   const onSubmit = (values, { resetForm }) => {
@@ -89,7 +89,7 @@ function Register() {
                     color: "red",
                   }}
                 >
-                  {register_error.data.message}
+                  {register_error?.data?.message}
                 </span>
               )}
 

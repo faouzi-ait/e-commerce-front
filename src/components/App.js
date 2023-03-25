@@ -21,14 +21,13 @@ import "../App.scss";
 
 function App() {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.isAuthenticated.state);
+  const isAuthenticated = useSelector((state) => state?.isAuthenticated?.state);
 
   useEffect(() => {
     const token = localStorage.getItem("store_user_token");
 
     if (token && token !== undefined) {
       dispatch({ type: SET_USER_AUTHENTICATED });
-
     } else {
       dispatch({ type: SET_USER_NOT_AUTHENTICATED });
     }

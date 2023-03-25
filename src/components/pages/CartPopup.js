@@ -5,7 +5,7 @@ import { remove_all } from "../../redux/features/cart/action";
 
 export default function Cart({ open, history }) {
   const dispatch = useDispatch();
-  const { selectedItems, totalPrice } = useSelector((state) => state.cart);
+  const { selectedItems, totalPrice } = useSelector((state) => state?.cart);
 
   return (
     <div className="cart__container">
@@ -15,8 +15,8 @@ export default function Cart({ open, history }) {
         </span>
       </div>
       <div className="cart__content--container">
-        {selectedItems && selectedItems.length > 0 ? (
-          selectedItems.map((item, i) => (
+        {selectedItems && selectedItems?.length > 0 ? (
+          selectedItems?.map((item, i) => (
             <CartItems item={item} key={item._id} />
           ))
         ) : (
@@ -42,7 +42,7 @@ export default function Cart({ open, history }) {
             fontSize: ".9rem",
           }}
         >
-          {selectedItems && selectedItems.length > 0 && (
+          {selectedItems && selectedItems?.length > 0 && (
             <>
               <button
                 style={{ margin: "0 auto .35rem", width: "100%" }}

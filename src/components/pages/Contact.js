@@ -12,7 +12,7 @@ import LoginHeader from "../ui-elements/LoginHeader";
 
 function Contact() {
   const dispatch = useDispatch();
-  const { errorMessage, message } = useSelector((state) => state.contact);
+  const { errorMessage, message } = useSelector((state) => state?.contact);
 
   const onSubmit = (values, { resetForm }) => {
     const { firstname, lastname, email, message } = values;

@@ -9,7 +9,7 @@ import LoginHeader from "../ui-elements/LoginHeader";
 
 function Login({ history }) {
   const dispatch = useDispatch();
-  const register_error = useSelector((state) => state.login.errorMessage);
+  const register_error = useSelector((state) => state?.login?.errorMessage);
 
   const onSubmit = (values) => {
     const { email, password } = values;

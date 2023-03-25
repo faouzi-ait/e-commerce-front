@@ -10,8 +10,8 @@ import StoreItems from "../ui-elements/StoreItems";
 export default function Category() {
   const dispatch = useDispatch();
   let { id } = useParams();
-  const category_items = useSelector((state) => state.shop_items.list);
-  const category_selected = category_items.filter((item) => item.route === id);
+  const category_items = useSelector((state) => state?.shop_items?.list);
+  const category_selected = category_items?.filter((item) => item?.route === id);
 
   useEffect(() => {
     dispatch(shop_items());

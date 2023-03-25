@@ -32,7 +32,7 @@ const MyApp = () => {
     axios
       .all([
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/confirmation/message`,
+          `http://localhost:5000/api/v1/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -45,7 +45,7 @@ const MyApp = () => {
           }
         ),
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
+          `http://localhost:5000/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },

@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { /*useSelector,*/ useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { add_item_to_cart, add_one } from "../../redux/features/cart/action";
 
 export default function StoreItems({ product }) {
   const dispatch = useDispatch();
   const [isInCart, setIsInCart] = useState(false);
-  // const { selectedItems } = useSelector((state) => state.cart);
+  const { selectedItems } = useSelector((state) => state.cart);
   let cartFromStorage = JSON.parse(
     localStorage.getItem("e-commerce_shopping-cart")
   );
 
   useEffect(() => {
-    const productInCart = cartFromStorage.find(
-      (item) => item._id === product._id
+    const productInCart = cartFromStorage?.find(
+      (item) => item?._id === product?._id
     );
     if (productInCart) {
       setIsInCart(true);
     } else {
       setIsInCart(false);
     }
-  }, [cartFromStorage, product._id]);
+  }, [cartFromStorage, product?._id]);
 
   return (
     <div className="listing__container--card">

@@ -24,7 +24,7 @@ export const update_profile = (email, body) => async (dispatch) => {
 
   try {
     const request = await axios.post(
-      'https://clean-pumps-tick.cyclic.app/api/v1/user/updateAvatar/' + email,
+      'http://localhost:5000/api/v1/user/updateAvatar/' + email,
       body,
       {
         headers: {

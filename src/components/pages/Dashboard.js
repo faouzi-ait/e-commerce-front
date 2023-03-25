@@ -12,8 +12,8 @@ import DashboardOrderTable from "../ui-elements/DashboardOrderTable";
 
 function Dashboard() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.profile.profile);
-  const { loading } = useSelector((state) => state.profile);
+  const { user } = useSelector((state) => state?.profile?.profile);
+  const { loading } = useSelector((state) => state?.profile);
   const [progress, setProgress] = useState(0);
   const [photoUpdate, setPhotoUpdate] = useState(false);
   const [file, setFile] = useState("");

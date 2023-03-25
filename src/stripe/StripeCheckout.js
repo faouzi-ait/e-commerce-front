@@ -41,7 +41,7 @@ function StripeCheckout() {
     axios
       .all([
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/confirmation/message`,
+          `http://localhost:5000/api/v1/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -54,7 +54,7 @@ function StripeCheckout() {
           }
         ),
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
+          `http://localhost:5000/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },

@@ -24,7 +24,7 @@ export const profile = (email) => async (dispatch) => {
 
   try {
     const request = await axios.get(
-      'https://clean-pumps-tick.cyclic.app/api/v1/user/getprofile/' + email,
+      'http://localhost:5000/api/v1/user/getprofile/' + email,
       {
         headers: {
           authorization: filteredToken,
