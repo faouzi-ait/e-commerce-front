@@ -18,7 +18,7 @@ const register_user_failure = (error) => {
 export const register_user = (user, callback) => async (dispatch) => {
   try {
     const request = await axios.post(
-      'https://clean-pumps-tick.cyclic.app/api/v1/auth',
+      'https://distinct-tweed-jacket-calf.cyclic.app/api/v1/auth',
       user
     );
     dispatch(register_user_success(request.data));

@@ -22,7 +22,7 @@ const fetch_listing_failure = (error) => {
 export const fetch_listing = () => async (dispatch) => {
   try {
     const request = await axios.get(
-      'https://clean-pumps-tick.cyclic.app/api/v1/products'
+      'https://distinct-tweed-jacket-calf.cyclic.app/api/v1/products'
     );
     dispatch(fetch_listing_success(request.data.list));
   } catch (e) {

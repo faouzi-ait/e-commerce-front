@@ -32,7 +32,7 @@ const MyApp = () => {
     axios
       .all([
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/confirmation/message`,
+          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -45,7 +45,7 @@ const MyApp = () => {
           }
         ),
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
+          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },

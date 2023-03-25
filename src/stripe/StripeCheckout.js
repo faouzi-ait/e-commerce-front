@@ -41,7 +41,7 @@ function StripeCheckout() {
     axios
       .all([
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/confirmation/message`,
+          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -54,7 +54,7 @@ function StripeCheckout() {
           }
         ),
         axios.post(
-          `https://clean-pumps-tick.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
+          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },
