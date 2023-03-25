@@ -19,7 +19,7 @@ export default function StoreItems({ product }) {
     } else {
       setIsInCart(false);
     }
-  }, [cartFromStorage, product?._id]);
+  }, [cartFromStorage, product]);
 
   return (
     <div className="listing__container--card">
