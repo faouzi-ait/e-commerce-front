@@ -1,5 +1,6 @@
-import { REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE } from '../../types';
 import axios from 'axios';
+import { localUrl, prodUrl } from '../../../utils/utilities';
+import { REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE } from '../../types';
 
 const register_user_success = (user) => {
   return {
@@ -16,11 +17,10 @@ const register_user_failure = (error) => {
 };
 
 export const register_user = (user, callback) => async (dispatch) => {
+  let url = process.env.NODE_ENV === 'development' ? localUrl : prodUrl;
+
   try {
-    const request = await axios.post(
-      'https://distinct-tweed-jacket-calf.cyclic.app/api/v1/auth',
-      user
-    );
+    const request = await axios.post(`${url}/auth`, user);
     dispatch(register_user_success(request.data));
     callback();
   } catch (e) {

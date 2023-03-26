@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { localUrl, prodUrl } from '../../../utils/utilities';
+
 import {
   UPDATE_USER_AVATAR_SUCCESS,
   UPDATE_USER_AVATAR_FAILURE,
@@ -19,13 +21,13 @@ const update_user_avatar_failure = (error) => {
 };
 
 export const update_profile = (email, body) => async (dispatch) => {
+  let url = process.env.NODE_ENV === 'development' ? localUrl : prodUrl;
   const token = localStorage.getItem('store_user_token');
   const filteredToken = token.replace(/"/g, '');
 
   try {
     const request = await axios.post(
-      'https://distinct-tweed-jacket-calf.cyclic.app/api/v1/user/updateAvatar/' +
-        email,
+      `${url}/user/updateAvatar/${email}`,
       body,
       {
         headers: {

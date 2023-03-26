@@ -1,16 +1,17 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import logger from "redux-logger";
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-import { profile } from "./features/user_profile/reducer";
-import { registration } from "./features/registration/reducer";
-import { login } from "./features/login/reducer";
-import { get_listing } from "./features/product_category_listing/reducer";
-import { shop_items } from "./features/product_listing/reducer";
-import { contact } from "./features/contact/reducer";
-import { cart } from "./features/cart/reducer";
-import { payment } from "./features/payment/reducer";
-import { isAuthenticated } from "./features/auth_status/reducer";
+import { profile } from './features/user_profile/reducer';
+import { registration } from './features/registration/reducer';
+import { login } from './features/login/reducer';
+import { get_listing } from './features/product_category_listing/reducer';
+import { shop_items } from './features/product_listing/reducer';
+import { contact } from './features/contact/reducer';
+import { cart } from './features/cart/reducer';
+import { payment } from './features/payment/reducer';
+import { isAuthenticated } from './features/auth_status/reducer';
+import { env } from './features/home/reducer';
 
 const combinedReducers = combineReducers({
   profile,
@@ -22,6 +23,7 @@ const combinedReducers = combineReducers({
   cart,
   payment,
   isAuthenticated,
+  env,
 });
 
 const store = createStore(

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { localUrl, prodUrl } from '../../../utils/utilities';
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
@@ -22,11 +23,10 @@ const login_user_failure = (error) => {
 };
 
 export const login_user = (user, callback) => async (dispatch) => {
+  let url = process.env.NODE_ENV === 'development' ? localUrl : prodUrl;
+
   try {
-    const request = await axios.post(
-      'https://distinct-tweed-jacket-calf.cyclic.app/api/v1/login',
-      user
-    );
+    const request = await axios.post(`${url}/login`, user);
     dispatch(login_user_success(request.data));
     localStorage.setItem(
       'store_user_token',

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { localUrl, prodUrl } from '../utils/utilities';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import { useSelector, useDispatch } from 'react-redux';
 import { remove_all } from '../redux/features/cart/action';
@@ -23,6 +24,7 @@ const MyApp = () => {
   };
 
   const onSuccess = (payment) => {
+    let url = process.env.NODE_ENV === 'development' ? localUrl : prodUrl;
     let filteredToken = usertoken.replace(/"/g, '');
     let filteredEmail = userEmail.replace(/"/g, '');
     let date = new Date();
@@ -32,7 +34,7 @@ const MyApp = () => {
     axios
       .all([
         axios.post(
-          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/confirmation/message`,
+          `${url}/confirmation/message`,
           {
             clientMail: userEmail,
             order: selectedItems,
@@ -45,7 +47,7 @@ const MyApp = () => {
           }
         ),
         axios.post(
-          `https://distinct-tweed-jacket-calf.cyclic.app/api/v1/order/userHistory/${filteredEmail}`,
+          `http://localhost:5000/api/v1/order/userHistory/${filteredEmail}`,
           {
             shoppingCart: purchasedItems,
           },

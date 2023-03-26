@@ -1,30 +1,31 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 
-import Home from "./pages/Home";
-import Store from "./pages/Store";
-import Dashboard from "./pages/Dashboard";
-import Category from "./pages/Category";
-import ProductDetails from "./pages/ProductDetails";
-import Contact from "./pages/Contact";
-import Checkout from "./pages/Checkout";
-import UserAuth from "./ui-elements/UserAuth";
-import Error4O4 from "./pages/error_pages/Error404";
-import Error4O3 from "./pages/error_pages/Error403";
+import Home from './pages/Home';
+import Store from './pages/Store';
+import Dashboard from './pages/Dashboard';
+import Category from './pages/Category';
+import ProductDetails from './pages/ProductDetails';
+import Contact from './pages/Contact';
+import Checkout from './pages/Checkout';
+import UserAuth from './ui-elements/UserAuth';
+import Error4O4 from './pages/error_pages/Error404';
+import Error4O3 from './pages/error_pages/Error403';
 
 import {
   SET_USER_AUTHENTICATED,
   SET_USER_NOT_AUTHENTICATED,
-} from "../redux/types";
-import "../App.scss";
+} from '../redux/types';
+
+import '../App.scss';
 
 function App() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state?.isAuthenticated?.state);
 
   useEffect(() => {
-    const token = localStorage.getItem("store_user_token");
+    const token = localStorage.getItem('store_user_token');
 
     if (token && token !== undefined) {
       dispatch({ type: SET_USER_AUTHENTICATED });
