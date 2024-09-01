@@ -67,4 +67,4 @@ export function parseJwt(token) {
 }
 
 export const localUrl = 'http://localhost:5000/api/v1';
-export const prodUrl = 'https://distinct-tweed-jacket-calf.cyclic.app/api/v1';
+export const prodUrl = 'https://e-commerce-back-h0iu.onrender.com/api/v1';
