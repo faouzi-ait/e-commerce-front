@@ -15,7 +15,8 @@ function Contact() {
   const { errorMessage, message } = useSelector((state) => state?.contact);
 
   const onSubmit = (values, { resetForm }) => {
-    const { firstname, lastname, email, message } = values;
+    const subject = "NEW-STYLE"
+    const { firstname, lastname, email, subject, message } = values;
     dispatch(
       send_contact_message({ name: firstname, lastname, email, message })
     );
