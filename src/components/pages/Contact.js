@@ -16,9 +16,9 @@ function Contact() {
 
   const onSubmit = (values, { resetForm }) => {
     const subject = "NEW-STYLE"
-    const { firstname, lastname, email, subject, message } = values;
+    const { firstname, lastname, email, message } = values;
     dispatch(
-      send_contact_message({ name: firstname, lastname, email, message })
+      send_contact_message({ name: firstname, lastname, email, subject, message })
     );
     resetForm();
   };
