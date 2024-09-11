@@ -67,4 +67,4 @@ export function parseJwt(token) {
 }
 
 export const localUrl = 'http://localhost:5000/api/v1';
-export const prodUrl = 'https://email-server-backend.onrender.com/api/v1';
+export const prodUrl = 'https://e-commerce-back-h0iu.onrender.com/api/v1';
