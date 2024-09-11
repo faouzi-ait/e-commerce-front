@@ -17,7 +17,7 @@ const contact_failure = (error) => {
 };
 
 export const send_contact_message = (message) => async (dispatch) => {
-  let url = process.env.NODE_ENV === 'development' ? localUrl : prodUrl;
+  let url = process.env.NODE_ENV === 'development' ? localUrl : 'https://email-server-backend.onrender.com/api/v1';
 
   try {
     const request = await axios.post(`${url}/contact/message`, message);
